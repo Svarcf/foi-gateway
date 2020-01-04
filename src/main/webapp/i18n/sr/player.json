@@ -1,0 +1,25 @@
+{
+  "footballUiApp": {
+    "player": {
+      "home": {
+        "title": "Players",
+        "createLabel": "Kreiraj novi Player",
+        "createOrEditLabel": "Kreirajte ili izmenite Player",
+        "notFound": "No Players found"
+      },
+      "created": "Kreiran je novi Player pod nazivom {{ param }}",
+      "updated": "Player pod nazivom {{ param }} je ažuriran",
+      "deleted": "Player pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Player pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Player"
+      },
+      "name": "Name",
+      "number": "Number",
+      "position": "Position",
+      "team": "Team"
+    }
+  }
+}
