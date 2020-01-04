@@ -94,7 +94,7 @@ export default (state: TeamState = initialState, action): TeamState => {
   }
 };
 
-const apiUrl = 'api/teams';
+const apiUrl = 'services/footballaggregation/api/teams';
 
 // Actions
 

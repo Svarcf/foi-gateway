@@ -95,7 +95,7 @@ export default (state: FixtureState = initialState, action): FixtureState => {
   }
 };
 
-const apiUrl = 'api/fixtures';
+const apiUrl = 'services/footballaggregation/api/fixtures';
 
 // Actions
 

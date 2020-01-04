@@ -94,7 +94,7 @@ export default (state: PlayerState = initialState, action): PlayerState => {
   }
 };
 
-const apiUrl = 'api/players';
+const apiUrl = 'services/footballaggregation/api/players';
 
 // Actions
 
