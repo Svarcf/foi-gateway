@@ -1,0 +1,25 @@
+{
+  "footballUiApp": {
+    "foiFootballPlayer": {
+      "home": {
+        "title": "Foi Football Players",
+        "createLabel": "Kreiraj novi Foi Football Player",
+        "createOrEditLabel": "Kreirajte ili izmenite Foi Football Player",
+        "notFound": "No Foi Football Players found"
+      },
+      "created": "Kreiran je novi Foi Football Player pod nazivom {{ param }}",
+      "updated": "Foi Football Player pod nazivom {{ param }} je ažuriran",
+      "deleted": "Foi Football Player pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Foi Football Player pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Foi Football Player"
+      },
+      "name": "Name",
+      "number": "Number",
+      "foiFootballPosition": "Foi Football Position",
+      "foiFootballTeam": "Foi Football Team"
+    }
+  }
+}

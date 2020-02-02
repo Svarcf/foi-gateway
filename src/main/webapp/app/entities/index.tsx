@@ -7,6 +7,11 @@ import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import Player from './player';
 import Team from './team';
 import Fixture from './fixture';
+import FoiFootballPlayer from './foi-football-player';
+import FoiFootballPosition from './foi-football-position';
+import FoiFootballTeam from './foi-football-team';
+import FoiFootballFixture from './foi-football-fixture';
+import FoiFootballTournament from './foi-football-tournament';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -16,6 +21,11 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}/player`} component={Player} />
       <ErrorBoundaryRoute path={`${match.url}/team`} component={Team} />
       <ErrorBoundaryRoute path={`${match.url}/fixture`} component={Fixture} />
+      <ErrorBoundaryRoute path={`${match.url}/foi-football-player`} component={FoiFootballPlayer} />
+      <ErrorBoundaryRoute path={`${match.url}/foi-football-position`} component={FoiFootballPosition} />
+      <ErrorBoundaryRoute path={`${match.url}/foi-football-team`} component={FoiFootballTeam} />
+      <ErrorBoundaryRoute path={`${match.url}/foi-football-fixture`} component={FoiFootballFixture} />
+      <ErrorBoundaryRoute path={`${match.url}/foi-football-tournament`} component={FoiFootballTournament} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>

@@ -24,6 +24,26 @@ import team, {
 import fixture, {
   FixtureState
 } from 'app/entities/fixture/fixture.reducer';
+// prettier-ignore
+import foiFootballPlayer, {
+  FoiFootballPlayerState
+} from 'app/entities/foi-football-player/foi-football-player.reducer';
+// prettier-ignore
+import foiFootballPosition, {
+  FoiFootballPositionState
+} from 'app/entities/foi-football-position/foi-football-position.reducer';
+// prettier-ignore
+import foiFootballTeam, {
+  FoiFootballTeamState
+} from 'app/entities/foi-football-team/foi-football-team.reducer';
+// prettier-ignore
+import foiFootballFixture, {
+  FoiFootballFixtureState
+} from 'app/entities/foi-football-fixture/foi-football-fixture.reducer';
+// prettier-ignore
+import foiFootballTournament, {
+  FoiFootballTournamentState
+} from 'app/entities/foi-football-tournament/foi-football-tournament.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -40,6 +60,11 @@ export interface IRootState {
   readonly player: PlayerState;
   readonly team: TeamState;
   readonly fixture: FixtureState;
+  readonly foiFootballPlayer: FoiFootballPlayerState;
+  readonly foiFootballPosition: FoiFootballPositionState;
+  readonly foiFootballTeam: FoiFootballTeamState;
+  readonly foiFootballFixture: FoiFootballFixtureState;
+  readonly foiFootballTournament: FoiFootballTournamentState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -58,6 +83,11 @@ const rootReducer = combineReducers<IRootState>({
   player,
   team,
   fixture,
+  foiFootballPlayer,
+  foiFootballPosition,
+  foiFootballTeam,
+  foiFootballFixture,
+  foiFootballTournament,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar
 });

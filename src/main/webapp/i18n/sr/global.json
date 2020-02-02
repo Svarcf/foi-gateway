@@ -10,6 +10,11 @@
         "player": "Player",
         "team": "Team",
         "fixture": "Fixture",
+        "foiFootballPlayer": "Foi Football Player",
+        "foiFootballPosition": "Foi Football Position",
+        "foiFootballTeam": "Foi Football Team",
+        "foiFootballFixture": "Foi Football Fixture",
+        "foiFootballTournament": "Foi Football Tournament",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,24 @@
+{
+  "footballUiApp": {
+    "foiFootballTournament": {
+      "home": {
+        "title": "Foi Football Tournaments",
+        "createLabel": "Kreiraj novi Foi Football Tournament",
+        "createOrEditLabel": "Kreirajte ili izmenite Foi Football Tournament",
+        "notFound": "No Foi Football Tournaments found"
+      },
+      "created": "Kreiran je novi Foi Football Tournament pod nazivom {{ param }}",
+      "updated": "Foi Football Tournament pod nazivom {{ param }} je ažuriran",
+      "deleted": "Foi Football Tournament pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Foi Football Tournament pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Foi Football Tournament"
+      },
+      "name": "Name",
+      "start": "Start",
+      "end": "End"
+    }
+  }
+}

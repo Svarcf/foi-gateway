@@ -1,0 +1,30 @@
+{
+    "name": "FoiFootballPosition",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballPlayer",
+            "otherEntityRelationshipName": "foiFootballPosition",
+            "relationshipName": "players"
+        }
+    ],
+    "changelogDate": "20200202150330",
+    "entityTableName": "foi_football_position",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

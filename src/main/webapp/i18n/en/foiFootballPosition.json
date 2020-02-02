@@ -1,0 +1,23 @@
+{
+  "footballUiApp": {
+    "foiFootballPosition": {
+      "home": {
+        "title": "Foi Football Positions",
+        "createLabel": "Create a new Foi Football Position",
+        "createOrEditLabel": "Create or edit a Foi Football Position",
+        "notFound": "No Foi Football Positions found"
+      },
+      "created": "A new Foi Football Position is created with identifier {{ param }}",
+      "updated": "A Foi Football Position is updated with identifier {{ param }}",
+      "deleted": "A Foi Football Position is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Foi Football Position {{ id }}?"
+      },
+      "detail": {
+        "title": "Foi Football Position"
+      },
+      "name": "Name",
+      "players": "Players"
+    }
+  }
+}

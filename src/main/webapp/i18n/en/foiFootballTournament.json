@@ -1,0 +1,24 @@
+{
+  "footballUiApp": {
+    "foiFootballTournament": {
+      "home": {
+        "title": "Foi Football Tournaments",
+        "createLabel": "Create a new Foi Football Tournament",
+        "createOrEditLabel": "Create or edit a Foi Football Tournament",
+        "notFound": "No Foi Football Tournaments found"
+      },
+      "created": "A new Foi Football Tournament is created with identifier {{ param }}",
+      "updated": "A Foi Football Tournament is updated with identifier {{ param }}",
+      "deleted": "A Foi Football Tournament is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Foi Football Tournament {{ id }}?"
+      },
+      "detail": {
+        "title": "Foi Football Tournament"
+      },
+      "name": "Name",
+      "start": "Start",
+      "end": "End"
+    }
+  }
+}

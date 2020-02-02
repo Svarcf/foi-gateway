@@ -1,0 +1,25 @@
+{
+  "footballUiApp": {
+    "foiFootballFixture": {
+      "home": {
+        "title": "Foi Football Fixtures",
+        "createLabel": "Create a new Foi Football Fixture",
+        "createOrEditLabel": "Create or edit a Foi Football Fixture",
+        "notFound": "No Foi Football Fixtures found"
+      },
+      "created": "A new Foi Football Fixture is created with identifier {{ param }}",
+      "updated": "A Foi Football Fixture is updated with identifier {{ param }}",
+      "deleted": "A Foi Football Fixture is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Foi Football Fixture {{ id }}?"
+      },
+      "detail": {
+        "title": "Foi Football Fixture"
+      },
+      "eventDate": "Event Date",
+      "round": "Round",
+      "venue": "Venue",
+      "score": "Score"
+    }
+  }
+}
