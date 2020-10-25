@@ -1,7 +1,7 @@
 {
   "global": {
     "title": "FootballUI",
-    "browsehappy": "Koristite <strong>zastareli</strong> pretraživač. Molimo vas <a href=\"http://browsehappy.com/?locale=en\">nadogradite pretraživač</a> kako biste poboljšali Vaše iskustvo.",
+    "browsehappy": "Koristite <strong>zastarjeli</strong> pretraživač. Molimo vas <a href=\"http://browsehappy.com/?locale=en\">nadogradite pretraživač</a> kako biste poboljšali Vaše iskustvo.",
     "menu": {
       "home": "Početna stranica",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
@@ -24,15 +24,15 @@
         "sessions": "Sesije",
         "login": "Prijavi me",
         "logout": "Odjavi me",
-        "register": "Registruj me"
+        "register": "Registracija"
       },
       "admin": {
         "main": "Administracija",
         "gateway": "Gateway",
-        "userManagement": "Korisnički manadžment",
+        "userManagement": "Upravljanje korisnicima",
         "tracker": "Praćenje korisnika",
         "metrics": "Metrika",
-        "health": "Ispravnost sistema",
+        "health": "Ispravnost sustava",
         "configuration": "Konfiguracija",
         "logs": "Logovi",
         "audits": "Revizije",
@@ -55,13 +55,13 @@
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "Ako želite da se ",
-          "link": "prijavite",
+          "prefix": "Ako se želite ",
+          "link": "prijaviti",
           "suffix": ", možete probati sa univerzanlnim korisničkim nalozima:<br/>- Administrator (korisničko ime=\"admin\" i lozinka=\"admin\") <br/>- User (korisničko ime=\"user\" i lozinka=\"user\")."
         },
         "register": {
-          "noaccount": "Još uvek nemate profil?",
-          "link": "Registrujte svoj profil"
+          "noaccount": "Još uvijek nemate profil?",
+          "link": "Registriraj svoj profil"
         }
       },
       "error": {
@@ -70,20 +70,20 @@
       "validate": {
         "newpassword": {
           "required": "Lozinka je obavezna.",
-          "minlength": "Korisničko ime mora imati najmanje 4 karaktera.",
-          "maxlength": "Lozinka ne može biti duže od 50 karaktera.",
-          "strength": "Jačina lozinke:"
+          "minlength": "Korisničko ime mora imati najmanje 4 znaka.",
+          "maxlength": "Lozinka ne može biti duže od 50 znakova.",
+          "strength": "Snaga lozinke:"
         },
         "confirmpassword": {
           "required": "Potvrda lozinke je obavezna.",
-          "minlength": "Potvrda lozinke mora imati najmanje 4 karaktera.",
-          "maxlength": "Potvrda lozinke ne može biti duža od 50 karaktera."
+          "minlength": "Potvrda lozinke mora imati najmanje 4 znaka.",
+          "maxlength": "Potvrda lozinke ne može biti duža od 50 znakova."
         },
         "email": {
           "required": "Vaš email je obavezan.",
           "invalid": "Vaš email is neispravan.",
-          "minlength": "Vaš email mora imati najmanje 5 karaktera.",
-          "maxlength": "Vaš email ne može biti duži od 50 karaktera."
+          "minlength": "Vaš email mora imati najmanje 5 znaka.",
+          "maxlength": "Vaš email ne može biti duži od 50 znakova."
         }
       }
     },
@@ -102,29 +102,29 @@
       "back": "Nazad",
       "cancel": "Otkaži",
       "delete": "Obriši",
-      "edit": "Izmeni",
+      "edit": "Izmjeni",
       "open": "Otvori",
       "save": "Sačuvaj",
       "view": "Pregled"
     },
     "detail": {
       "field": "Polje",
-      "value": "Vrednost"
+      "value": "Vrijednost"
     },
     "delete": {
       "title": "Potvrdi brisanje"
     },
     "validation": {
       "required": "Polje je obavezno.",
-      "minlength": "Polje mora biti veće od {{ min }} karaktera.",
-      "maxlength": "Polje ne može biti duže od {{ max }} karaktera.",
-      "min": "Polje mora biti veče od {{ min }}.",
+      "minlength": "Polje mora biti veće od {{ min }} znaka.",
+      "maxlength": "Polje ne može biti duže od {{ max }} znakova.",
+      "min": "Polje mora biti veće od {{ min }}.",
       "max": "Polje ne sme biti veće od {{ max }}.",
       "minbytes": "Polje mora biti veće od {{ min }} bajtova.",
       "maxbytes": "Polje ne može biti veće od {{ max }} bajtova.",
-      "pattern": "Polje mora da sledi obrazac {{ pattern }}.",
+      "pattern": "Polje mora slijediti obrazac {{ pattern }}.",
       "number": "Polje mora biti broj.",
-      "datetimelocal": "Polje mora biti datum i vreme."
+      "datetimelocal": "Polje mora biti datum i vrijeme."
     }
   },
   "error": {

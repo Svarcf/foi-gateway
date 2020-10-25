@@ -1,30 +1,30 @@
 {
   "settings": {
-    "title": "Podešavanja za [<strong>{{username}}</strong>]",
+    "title": "Postavke za [<strong>{{username}}</strong>]",
     "form": {
       "firstname": "Ime",
       "firstname.placeholder": "Vaše ime",
       "lastname": "Prezime",
       "lastname.placeholder": "Vaše prezime",
       "language": "Jezik",
-      "button": "Sačuvaj"
+      "button": "Spremi"
     },
     "messages": {
       "error": {
-        "fail": "<strong>Došlo je do greške!</strong> Izmene ne mogu biti sačuvane.",
+        "fail": "<strong>Došlo je do greške!</strong> Izmjene ne mogu biti sačuvane.",
         "emailexists": "<strong>Email je već upotrebljen!</strong> Molimo Vas odaberite drugi."
       },
-      "success": "<strong>Izmene su sačuvane!</strong>",
+      "success": "<strong>Izmjene su sačuvane!</strong>",
       "validate": {
         "firstname": {
           "required": "Ime je obavezno.",
-          "minlength": "Ime mora imati najmanje jedan karakter.",
-          "maxlength": "Vaše ime ne može biti duže od 50 karaktera."
+          "minlength": "Ime mora imati najmanje jedan znak.",
+          "maxlength": "Vaše ime ne može biti duže od 50 znakova."
         },
         "lastname": {
           "required": "Prezime je obavezno.",
-          "minlength": "Prezime mora imati najmanje jedan karakter.",
-          "maxlength": "Prezime ne može biti duže od 50 karaktera."
+          "minlength": "Prezime mora imati najmanje jedan znak.",
+          "maxlength": "Prezime ne može biti duže od 50 znakova."
         }
       }
     }

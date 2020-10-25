@@ -4,7 +4,7 @@
       "home": {
         "title": "Players",
         "createLabel": "Kreiraj novi Player",
-        "createOrEditLabel": "Kreirajte ili izmenite Player",
+        "createOrEditLabel": "Kreirajte ili izmijenite Player",
         "notFound": "No Players found"
       },
       "created": "Kreiran je novi Player pod nazivom {{ param }}",

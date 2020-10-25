@@ -4,14 +4,14 @@
       "home": {
         "title": "Foi Football Fixtures",
         "createLabel": "Kreiraj novi Foi Football Fixture",
-        "createOrEditLabel": "Kreirajte ili izmenite Foi Football Fixture",
+        "createOrEditLabel": "Kreirajte ili izmijenite Foi Football Fixture",
         "notFound": "No Foi Football Fixtures found"
       },
       "created": "Kreiran je novi Foi Football Fixture pod nazivom {{ param }}",
       "updated": "Foi Football Fixture pod nazivom {{ param }} je ažuriran",
       "deleted": "Foi Football Fixture pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Da li ste sigurni da želite da obrišete Foi Football Fixture pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Foi Football Fixture pod nazivom {{ id }}?"
       },
       "detail": {
         "title": "Foi Football Fixture"

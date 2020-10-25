@@ -9,11 +9,11 @@
     },
     "messages": {
       "error": {
-        "authentication": "<strong>Prijava je neuspešna!</strong> Korisničko ime i/ili lozinka nisu ispavni."
+        "authentication": "<strong>Prijava je neuspješna!</strong> Korisničko ime i/ili lozinka nisu ispravni."
       }
     },
     "password": {
-      "forgot": "Da li ste zaboravili lozinku?"
+      "forgot": "Jeste li zaboravili lozinku?"
     }
   }
 }

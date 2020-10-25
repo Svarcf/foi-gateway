@@ -1,8 +1,8 @@
 {
   "metrics": {
     "title": "Metrika aplikacije",
-    "refresh.button": "Osveži",
-    "updating": "Osvežavanje...",
+    "refresh.button": "Osvježi",
+    "updating": "Osvježavanje...",
     "jvm": {
       "title": "JVM metrika",
       "memory": {
@@ -15,15 +15,15 @@
         "title": "Niti",
         "all": "Sve",
         "runnable": "Runnable",
-        "timedwaiting": "Vreme čekanja",
+        "timedwaiting": "Vrijeme čekanja",
         "waiting": "Čekanje",
         "blocked": "Blokirano",
         "dump": {
           "title": "Niti",
           "id": "Id: ",
-          "blockedtime": "Blokirano vreme",
+          "blockedtime": "Blokirano vrijeme",
           "blockedcount": "Broj blokiranih",
-          "waitedtime": "Vreme čekanja",
+          "waitedtime": "Vrijeme čekanja",
           "waitedcount": "Broj čekanja",
           "lockname": "Lock ime",
           "stacktrace": "Stacktrace",
@@ -39,14 +39,14 @@
         "scavengetime": "Scavenge time"
       },
       "http": {
-        "title": "HTTP zahtevi (dogodjaji po sekundi)",
-        "active": "Aktivni zahtevi:",
-        "total": "Ukupno zahteva:",
+        "title": "HTTP zahtjevi (dogodjaji po sekundi)",
+        "active": "Aktivni zahtjevi:",
+        "total": "Ukupno zahtjeva:",
         "table": {
           "code": "Code",
           "count": "Broj",
-          "mean": "Sredja Vrednost",
-          "average": "Prosek"
+          "mean": "Srednja Vrijednost",
+          "average": "Prosjek"
         },
         "code": {
           "ok": "Ok",
@@ -70,7 +70,7 @@
       }
     },
     "cache": {
-      "title": "Keš statistika",
+      "title": "Cache statistika",
       "cachename": "Cache name",
       "hits": "Cache Hits",
       "misses": "Cache Misses",

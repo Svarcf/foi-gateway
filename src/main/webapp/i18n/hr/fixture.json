@@ -4,14 +4,14 @@
       "home": {
         "title": "Fixtures",
         "createLabel": "Kreiraj novi Fixture",
-        "createOrEditLabel": "Kreirajte ili izmenite Fixture",
+        "createOrEditLabel": "Kreirajte ili izmijenite Fixture",
         "notFound": "No Fixtures found"
       },
       "created": "Kreiran je novi Fixture pod nazivom {{ param }}",
       "updated": "Fixture pod nazivom {{ param }} je ažuriran",
       "deleted": "Fixture pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Da li ste sigurni da želite da obrišete Fixture pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Fixture pod nazivom {{ id }}?"
       },
       "detail": {
         "title": "Fixture"
