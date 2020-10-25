@@ -10,6 +10,8 @@ import { getEntities } from './team.reducer';
 import { ITeam } from 'app/shared/model/team.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
+import "./team.scss"
+
 export interface ITeamProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export class Team extends React.Component<ITeamProps> {
@@ -35,9 +37,6 @@ export class Team extends React.Component<ITeamProps> {
               <thead>
                 <tr>
                   <th>
-                    <Translate contentKey="global.field.id">ID</Translate>
-                  </th>
-                  <th>
                     <Translate contentKey="footballUiApp.team.name">Name</Translate>
                   </th>
                   <th>
@@ -52,13 +51,8 @@ export class Team extends React.Component<ITeamProps> {
               <tbody>
                 {teamList.map((team, i) => (
                   <tr key={`entity-${i}`}>
-                    <td>
-                      <Button tag={Link} to={`${match.url}/${team.id}`} color="link" size="sm">
-                        {team.id}
-                      </Button>
-                    </td>
                     <td>{team.name}</td>
-                    <td>{team.logo}</td>
+                    <td><img className="team-logo" src={team.logo} alt="logo"/></td>
                     <td>{team.venueName}</td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">

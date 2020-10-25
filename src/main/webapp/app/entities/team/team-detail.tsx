@@ -37,7 +37,9 @@ export class TeamDetail extends React.Component<ITeamDetailProps> {
                 <Translate contentKey="footballUiApp.team.logo">Logo</Translate>
               </span>
             </dt>
-            <dd>{teamEntity.logo}</dd>
+            <dd>
+              <img className="team-logo" src={teamEntity.logo} alt="logo"/>
+            </dd>
             <dt>
               <span id="venueName">
                 <Translate contentKey="footballUiApp.team.venueName">Venue Name</Translate>

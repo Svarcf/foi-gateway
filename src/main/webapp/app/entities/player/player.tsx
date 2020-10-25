@@ -35,9 +35,6 @@ export class Player extends React.Component<IPlayerProps> {
               <thead>
                 <tr>
                   <th>
-                    <Translate contentKey="global.field.id">ID</Translate>
-                  </th>
-                  <th>
                     <Translate contentKey="footballUiApp.player.name">Name</Translate>
                   </th>
                   <th>
@@ -52,11 +49,6 @@ export class Player extends React.Component<IPlayerProps> {
               <tbody>
                 {playerList.map((player, i) => (
                   <tr key={`entity-${i}`}>
-                    <td>
-                      <Button tag={Link} to={`${match.url}/${player.id}`} color="link" size="sm">
-                        {player.id}
-                      </Button>
-                    </td>
                     <td>{player.name}</td>
                     <td>{player.position}</td>
                     <td>{player.team ? <Link to={`team/${player.team.id}`}>{player.team.name}</Link> : ''}</td>

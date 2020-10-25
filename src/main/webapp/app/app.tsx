@@ -1,5 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
@@ -48,7 +50,7 @@ export const App = (props: IAppProps) => {
             isSwaggerEnabled={props.isSwaggerEnabled}
           />
         </ErrorBoundary>
-        <div className="container-fluid view-container" id="app-view-container">
+        <div className="container view-container" id="app-view-container">
           <Card className="jh-card">
             <ErrorBoundary>
               <AppRoutes />
