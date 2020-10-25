@@ -1,18 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-import { Translate, ICrudGetAllAction } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {connect} from 'react-redux';
+import {Link, RouteComponentProps} from 'react-router-dom';
+import {Button, Col, Row, Table} from 'reactstrap';
+import BootstrapTable from 'react-bootstrap-table-next';
+import {Translate, ICrudGetAllAction} from 'react-jhipster';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import { IRootState } from 'app/shared/reducers';
-import { getEntities } from './team.reducer';
-import { ITeam } from 'app/shared/model/team.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import {IRootState} from 'app/shared/reducers';
+import {getEntities} from './team.reducer';
+import filterFactory, {textFilter} from 'react-bootstrap-table2-filter';
 
 import "./team.scss"
 
-export interface ITeamProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
+export interface ITeamProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {
+}
 
 export class Team extends React.Component<ITeamProps> {
   componentDidMount() {
@@ -20,78 +21,82 @@ export class Team extends React.Component<ITeamProps> {
   }
 
   render() {
-    const { teamList, match } = this.props;
+    const {teamList, match} = this.props;
+    const columns = [
+      {
+        dataField: 'name',
+        text: 'Name',
+        filter: textFilter()
+      },
+      {
+        dataField: 'logo',
+        text: 'Logo',
+        formatter: (cellContent, team) =>
+          (
+            <img src={team.logo} alt="logo" className="team-logo"/>
+          )
+      },
+      {
+        dataField: 'venueName',
+        text: 'Venue Name'
+      },
+      {
+        dataField: 'commandColumn',
+        isDummyField: true,
+        text: '',
+        formatter: (cellContent, team) =>
+          (
+            <div className="btn-group flex-btn-group-container">
+              <Button tag={Link} to={`${match.url}/${team.id}`} color="info" size="sm">
+                <FontAwesomeIcon icon="eye"/>{' '}
+                <span className="d-none d-md-inline">
+                            <Translate contentKey="entity.action.view">View</Translate>
+                          </span>
+              </Button>
+              <Button tag={Link} to={`${match.url}/${team.id}/edit`} color="primary" size="sm">
+                <FontAwesomeIcon icon="pencil-alt"/>{' '}
+                <span className="d-none d-md-inline">
+                            <Translate contentKey="entity.action.edit">Edit</Translate>
+                          </span>
+              </Button>
+              <Button tag={Link} to={`${match.url}/${team.id}/delete`} color="danger" size="sm">
+                <FontAwesomeIcon icon="trash"/>{' '}
+                <span className="d-none d-md-inline">
+                            <Translate contentKey="entity.action.delete">Delete</Translate>
+                          </span>
+              </Button>
+            </div>
+          )
+      }
+    ]
     return (
       <div>
         <h2 id="team-heading">
           <Translate contentKey="footballUiApp.team.home.title">Teams</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
+            <FontAwesomeIcon icon="plus"/>
             &nbsp;
             <Translate contentKey="footballUiApp.team.home.createLabel">Create a new Team</Translate>
           </Link>
         </h2>
-        <div className="table-responsive">
           {teamList && teamList.length > 0 ? (
-            <Table responsive aria-describedby="team-heading">
-              <thead>
-                <tr>
-                  <th>
-                    <Translate contentKey="footballUiApp.team.name">Name</Translate>
-                  </th>
-                  <th>
-                    <Translate contentKey="footballUiApp.team.logo">Logo</Translate>
-                  </th>
-                  <th>
-                    <Translate contentKey="footballUiApp.team.venueName">Venue Name</Translate>
-                  </th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                {teamList.map((team, i) => (
-                  <tr key={`entity-${i}`}>
-                    <td>{team.name}</td>
-                    <td><img className="team-logo" src={team.logo} alt="logo"/></td>
-                    <td>{team.venueName}</td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${team.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${team.id}/edit`} color="primary" size="sm">
-                          <FontAwesomeIcon icon="pencil-alt" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.edit">Edit</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${team.id}/delete`} color="danger" size="sm">
-                          <FontAwesomeIcon icon="trash" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.delete">Delete</Translate>
-                          </span>
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          ) : (
+            <BootstrapTable
+              keyField="id"
+              data={teamList}
+              columns={columns}
+              filter={filterFactory()}
+            />
+          ):(
             <div className="alert alert-warning">
               <Translate contentKey="footballUiApp.team.home.notFound">No Teams found</Translate>
             </div>
           )}
-        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ team }: IRootState) => ({
+const mapStateToProps = ({team}: IRootState) => ({
   teamList: team.entities
 });
 

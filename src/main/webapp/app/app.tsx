@@ -1,7 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-
+import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
