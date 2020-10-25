@@ -5,7 +5,6 @@ export interface ITeam {
   name?: string;
   logo?: string;
   venueName?: string;
-  venueCity?: string;
   players?: IPlayer[];
 }
 

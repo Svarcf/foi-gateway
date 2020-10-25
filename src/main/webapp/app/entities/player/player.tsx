@@ -41,9 +41,6 @@ export class Player extends React.Component<IPlayerProps> {
                     <Translate contentKey="footballUiApp.player.name">Name</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="footballUiApp.player.number">Number</Translate>
-                  </th>
-                  <th>
                     <Translate contentKey="footballUiApp.player.position">Position</Translate>
                   </th>
                   <th>
@@ -61,7 +58,6 @@ export class Player extends React.Component<IPlayerProps> {
                       </Button>
                     </td>
                     <td>{player.name}</td>
-                    <td>{player.number}</td>
                     <td>{player.position}</td>
                     <td>{player.team ? <Link to={`team/${player.team.id}`}>{player.team.name}</Link> : ''}</td>
                     <td className="text-right">

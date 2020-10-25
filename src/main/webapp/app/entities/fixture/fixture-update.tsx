@@ -114,12 +114,6 @@ export class FixtureUpdate extends React.Component<IFixtureUpdateProps, IFixture
                   <AvField id="fixture-statusShort" type="text" name="statusShort" />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="venueLabel" for="fixture-venue">
-                    <Translate contentKey="footballUiApp.fixture.venue">Venue</Translate>
-                  </Label>
-                  <AvField id="fixture-venue" type="text" name="venue" />
-                </AvGroup>
-                <AvGroup>
                   <Label id="scoreLabel" for="fixture-score">
                     <Translate contentKey="footballUiApp.fixture.score">Score</Translate>
                   </Label>

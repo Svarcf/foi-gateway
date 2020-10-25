@@ -44,12 +44,6 @@ export class TeamDetail extends React.Component<ITeamDetailProps> {
               </span>
             </dt>
             <dd>{teamEntity.venueName}</dd>
-            <dt>
-              <span id="venueCity">
-                <Translate contentKey="footballUiApp.team.venueCity">Venue City</Translate>
-              </span>
-            </dt>
-            <dd>{teamEntity.venueCity}</dd>
           </dl>
           <Button tag={Link} to="/entity/team" replace color="info">
             <FontAwesomeIcon icon="arrow-left" />{' '}

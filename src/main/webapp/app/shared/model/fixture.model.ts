@@ -5,7 +5,6 @@ export interface IFixture {
   eventDate?: Moment;
   round?: string;
   statusShort?: string;
-  venue?: string;
   score?: string;
 }
 

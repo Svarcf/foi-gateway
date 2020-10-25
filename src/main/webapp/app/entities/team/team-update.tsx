@@ -119,19 +119,6 @@ export class TeamUpdate extends React.Component<ITeamUpdateProps, ITeamUpdateSta
                     }}
                   />
                 </AvGroup>
-                <AvGroup>
-                  <Label id="venueCityLabel" for="team-venueCity">
-                    <Translate contentKey="footballUiApp.team.venueCity">Venue City</Translate>
-                  </Label>
-                  <AvField
-                    id="team-venueCity"
-                    type="text"
-                    name="venueCity"
-                    validate={{
-                      required: { value: true, errorMessage: translate('entity.validation.required') }
-                    }}
-                  />
-                </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/team" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
                   &nbsp;

@@ -33,12 +33,6 @@ export class PlayerDetail extends React.Component<IPlayerDetailProps> {
             </dt>
             <dd>{playerEntity.name}</dd>
             <dt>
-              <span id="number">
-                <Translate contentKey="footballUiApp.player.number">Number</Translate>
-              </span>
-            </dt>
-            <dd>{playerEntity.number}</dd>
-            <dt>
               <span id="position">
                 <Translate contentKey="footballUiApp.player.position">Position</Translate>
               </span>

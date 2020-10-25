@@ -46,9 +46,6 @@ export class Team extends React.Component<ITeamProps> {
                   <th>
                     <Translate contentKey="footballUiApp.team.venueName">Venue Name</Translate>
                   </th>
-                  <th>
-                    <Translate contentKey="footballUiApp.team.venueCity">Venue City</Translate>
-                  </th>
                   <th />
                 </tr>
               </thead>
@@ -63,7 +60,6 @@ export class Team extends React.Component<ITeamProps> {
                     <td>{team.name}</td>
                     <td>{team.logo}</td>
                     <td>{team.venueName}</td>
-                    <td>{team.venueCity}</td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${team.id}`} color="info" size="sm">

@@ -107,21 +107,6 @@ export class PlayerUpdate extends React.Component<IPlayerUpdateProps, IPlayerUpd
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="numberLabel" for="player-number">
-                    <Translate contentKey="footballUiApp.player.number">Number</Translate>
-                  </Label>
-                  <AvField
-                    id="player-number"
-                    type="string"
-                    className="form-control"
-                    name="number"
-                    validate={{
-                      required: { value: true, errorMessage: translate('entity.validation.required') },
-                      number: { value: true, errorMessage: translate('entity.validation.number') }
-                    }}
-                  />
-                </AvGroup>
-                <AvGroup>
                   <Label id="positionLabel" for="player-position">
                     <Translate contentKey="footballUiApp.player.position">Position</Translate>
                   </Label>

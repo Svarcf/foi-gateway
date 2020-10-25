@@ -47,12 +47,6 @@ export class FixtureDetail extends React.Component<IFixtureDetailProps> {
             </dt>
             <dd>{fixtureEntity.statusShort}</dd>
             <dt>
-              <span id="venue">
-                <Translate contentKey="footballUiApp.fixture.venue">Venue</Translate>
-              </span>
-            </dt>
-            <dd>{fixtureEntity.venue}</dd>
-            <dt>
               <span id="score">
                 <Translate contentKey="footballUiApp.fixture.score">Score</Translate>
               </span>

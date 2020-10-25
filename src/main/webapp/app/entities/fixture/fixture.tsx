@@ -47,12 +47,9 @@ export class Fixture extends React.Component<IFixtureProps> {
                     <Translate contentKey="footballUiApp.fixture.statusShort">Status Short</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="footballUiApp.fixture.venue">Venue</Translate>
-                  </th>
-                  <th>
                     <Translate contentKey="footballUiApp.fixture.score">Score</Translate>
                   </th>
-                  <th />
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -68,7 +65,6 @@ export class Fixture extends React.Component<IFixtureProps> {
                     </td>
                     <td>{fixture.round}</td>
                     <td>{fixture.statusShort}</td>
-                    <td>{fixture.venue}</td>
                     <td>{fixture.score}</td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
