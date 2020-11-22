@@ -1,0 +1,27 @@
+{
+  "footballUiApp": {
+    "standing": {
+      "home": {
+        "title": "Standings",
+        "createLabel": "Kreiraj novi Standing",
+        "createOrEditLabel": "Kreirajte ili izmjenite Standing",
+        "notFound": "No Standings found"
+      },
+      "created": "Kreiran je novi Standing pod nazivom {{ param }}",
+      "updated": "Standing pod nazivom {{ param }} je ažuriran",
+      "deleted": "Standing pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Jeste li sigurni da želite obrisati Standing pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Standing"
+      },
+      "position": "Position",
+      "won": "Pobjeda",
+      "draw": "Nerješeno",
+      "lost": "Poraz",
+      "points": "Bodovi",
+      "team": "Tim"
+    }
+  }
+}

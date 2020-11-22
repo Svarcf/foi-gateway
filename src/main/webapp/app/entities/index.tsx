@@ -11,6 +11,8 @@ import FoiFootballPosition from './foi-football-position';
 import FoiFootballTeam from './foi-football-team';
 import FoiFootballFixture from './foi-football-fixture';
 import FoiFootballTournament from './foi-football-tournament';
+import Standing from './standing';
+import Competition from './competition';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -25,6 +27,8 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}/foi-football-team`} component={FoiFootballTeam} />
       <ErrorBoundaryRoute path={`${match.url}/foi-football-fixture`} component={FoiFootballFixture} />
       <ErrorBoundaryRoute path={`${match.url}/foi-football-tournament`} component={FoiFootballTournament} />
+      <ErrorBoundaryRoute path={`${match.url}/standing`} component={Standing} />
+      <ErrorBoundaryRoute path={`${match.url}/competition`} component={Competition} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>

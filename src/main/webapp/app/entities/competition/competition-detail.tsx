@@ -6,45 +6,41 @@ import { Translate, ICrudGetAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntity } from './player.reducer';
-import { IPlayer } from 'app/shared/model/player.model';
+import { getEntity } from './competition.reducer';
+import { ICompetition } from 'app/shared/model/competition.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT, AUTHORITIES } from 'app/config/constants';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
 
-export interface IPlayerDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export interface ICompetitionDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-export class PlayerDetail extends React.Component<IPlayerDetailProps> {
+export class CompetitionDetail extends React.Component<ICompetitionDetailProps> {
   componentDidMount() {
     this.props.getEntity(this.props.match.params.id);
   }
 
   render() {
-    const { playerEntity, isAdmin } = this.props;
+    const { competitionEntity, isAdmin } = this.props;
     return (
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="footballUiApp.player.detail.title">Player</Translate>
+            <Translate contentKey="footballUiApp.competition.detail.title">Competition</Translate> [<b>{competitionEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="name">
-                <Translate contentKey="footballUiApp.player.name">Name</Translate>
+                <Translate contentKey="footballUiApp.competition.name">Name</Translate>
               </span>
             </dt>
-            <dd>{playerEntity.name}</dd>
+            <dd>{competitionEntity.name}</dd>
             <dt>
-              <span id="position">
-                <Translate contentKey="footballUiApp.player.position">Position</Translate>
+              <span id="code">
+                <Translate contentKey="footballUiApp.competition.code">Code</Translate>
               </span>
             </dt>
-            <dd>{playerEntity.position}</dd>
-            <dt>
-              <Translate contentKey="footballUiApp.player.team">Team</Translate>
-            </dt>
-            <dd>{playerEntity.team ? playerEntity.team.name : ''}</dd>
+            <dd>{competitionEntity.code}</dd>
           </dl>
-          <Button tag={Link} to="/entity/player" replace color="info">
+          <Button tag={Link} to="/entity/competition" replace color="info">
             <FontAwesomeIcon icon="arrow-left" />{' '}
             <span className="d-none d-md-inline">
               <Translate contentKey="entity.action.back">Back</Translate>
@@ -52,7 +48,7 @@ export class PlayerDetail extends React.Component<IPlayerDetailProps> {
           </Button>
           &nbsp;
           {isAdmin && (
-            <Button tag={Link} to={`/entity/player/${playerEntity.id}/edit`} replace color="primary">
+            <Button tag={Link} to={`/entity/competition/${competitionEntity.id}/edit`} replace color="primary">
               <FontAwesomeIcon icon="pencil-alt" />{' '}
               <span className="d-none d-md-inline">
                 <Translate contentKey="entity.action.edit">Edit</Translate>
@@ -65,8 +61,8 @@ export class PlayerDetail extends React.Component<IPlayerDetailProps> {
   }
 }
 
-const mapStateToProps = ({ player, authentication }: IRootState) => ({
-  playerEntity: player.entity,
+const mapStateToProps = ({ competition, authentication }: IRootState) => ({
+  competitionEntity: competition.entity,
   isAdmin: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN])
 });
 
@@ -78,4 +74,4 @@ type DispatchProps = typeof mapDispatchToProps;
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlayerDetail);
+)(CompetitionDetail);

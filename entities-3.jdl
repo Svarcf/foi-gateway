@@ -1,0 +1,12 @@
+entity Standing {
+    position Integer required
+    won Integer required
+    draw Integer required
+    lost Integer required
+    points Integer required
+}
+
+entity Competition {
+    name String required
+    code String required
+}

@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './team.reducer';
 import { ITeam } from 'app/shared/model/team.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT, AUTHORITIES } from 'app/config/constants';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
 
 export interface ITeamDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -18,7 +19,7 @@ export class TeamDetail extends React.Component<ITeamDetailProps> {
   }
 
   render() {
-    const { teamEntity } = this.props;
+    const { teamEntity, isAdmin } = this.props;
     return (
       <Row>
         <Col md="8">
@@ -54,20 +55,23 @@ export class TeamDetail extends React.Component<ITeamDetailProps> {
             </span>
           </Button>
           &nbsp;
-          <Button tag={Link} to={`/entity/team/${teamEntity.id}/edit`} replace color="primary">
-            <FontAwesomeIcon icon="pencil-alt" />{' '}
-            <span className="d-none d-md-inline">
-              <Translate contentKey="entity.action.edit">Edit</Translate>
-            </span>
-          </Button>
+          {isAdmin && (
+            <Button tag={Link} to={`/entity/team/${teamEntity.id}/edit`} replace color="primary">
+              <FontAwesomeIcon icon="pencil-alt" />{' '}
+              <span className="d-none d-md-inline">
+                <Translate contentKey="entity.action.edit">Edit</Translate>
+              </span>
+            </Button>
+          )}
         </Col>
       </Row>
     );
   }
 }
 
-const mapStateToProps = ({ team }: IRootState) => ({
-  teamEntity: team.entity
+const mapStateToProps = ({ team, authentication }: IRootState) => ({
+  teamEntity: team.entity,
+  isAdmin: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN])
 });
 
 const mapDispatchToProps = { getEntity };

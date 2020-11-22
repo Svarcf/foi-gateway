@@ -1,0 +1,27 @@
+{
+  "footballUiApp": {
+    "standing": {
+      "home": {
+        "title": "Standings",
+        "createLabel": "Create a new Standing",
+        "createOrEditLabel": "Create or edit a Standing",
+        "notFound": "No Standings found"
+      },
+      "created": "A new Standing is created with identifier {{ param }}",
+      "updated": "A Standing is updated with identifier {{ param }}",
+      "deleted": "A Standing is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Standing {{ id }}?"
+      },
+      "detail": {
+        "title": "Standing"
+      },
+      "position": "Position",
+      "won": "Won",
+      "draw": "Draw",
+      "lost": "Lost",
+      "points": "Points",
+      "team": "Team"
+    }
+  }
+}

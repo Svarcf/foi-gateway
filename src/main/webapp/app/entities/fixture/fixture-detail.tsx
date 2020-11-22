@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './fixture.reducer';
 import { IFixture } from 'app/shared/model/fixture.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT, AUTHORITIES } from 'app/config/constants';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
 
 export interface IFixtureDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -18,7 +19,7 @@ export class FixtureDetail extends React.Component<IFixtureDetailProps> {
   }
 
   render() {
-    const { fixtureEntity } = this.props;
+    const { fixtureEntity, isAdmin } = this.props;
     return (
       <Row>
         <Col md="8">
@@ -60,20 +61,23 @@ export class FixtureDetail extends React.Component<IFixtureDetailProps> {
             </span>
           </Button>
           &nbsp;
-          <Button tag={Link} to={`/entity/fixture/${fixtureEntity.id}/edit`} replace color="primary">
-            <FontAwesomeIcon icon="pencil-alt" />{' '}
-            <span className="d-none d-md-inline">
-              <Translate contentKey="entity.action.edit">Edit</Translate>
-            </span>
-          </Button>
+          {isAdmin && (
+            <Button tag={Link} to={`/entity/fixture/${fixtureEntity.id}/edit`} replace color="primary">
+              <FontAwesomeIcon icon="pencil-alt" />{' '}
+              <span className="d-none d-md-inline">
+                <Translate contentKey="entity.action.edit">Edit</Translate>
+              </span>
+            </Button>
+          )}
         </Col>
       </Row>
     );
   }
 }
 
-const mapStateToProps = ({ fixture }: IRootState) => ({
-  fixtureEntity: fixture.entity
+const mapStateToProps = ({ fixture, authentication }: IRootState) => ({
+  fixtureEntity: fixture.entity,
+  isAdmin: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN])
 });
 
 const mapDispatchToProps = { getEntity };
