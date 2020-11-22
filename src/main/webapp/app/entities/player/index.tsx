@@ -7,16 +7,18 @@ import Player from './player';
 import PlayerDetail from './player-detail';
 import PlayerUpdate from './player-update';
 import PlayerDeleteDialog from './player-delete-dialog';
+import PrivateRoute from 'app/shared/auth/private-route';
+import { AUTHORITIES } from 'app/config/constants';
 
 const Routes = ({ match }) => (
   <>
     <Switch>
       <ErrorBoundaryRoute exact path={`${match.url}/new`} component={PlayerUpdate} />
-      <ErrorBoundaryRoute exact path={`${match.url}/:id/edit`} component={PlayerUpdate} />
+      <PrivateRoute exact path={`${match.url}/:id/edit`} component={PlayerUpdate} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
       <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={PlayerDetail} />
       <ErrorBoundaryRoute path={match.url} component={Player} />
     </Switch>
-    <ErrorBoundaryRoute path={`${match.url}/:id/delete`} component={PlayerDeleteDialog} />
+    <PrivateRoute path={`${match.url}/:id/delete`} component={PlayerDeleteDialog} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
   </>
 );
 

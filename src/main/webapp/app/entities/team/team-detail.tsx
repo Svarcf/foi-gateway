@@ -23,7 +23,7 @@ export class TeamDetail extends React.Component<ITeamDetailProps> {
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="footballUiApp.team.detail.title">Team</Translate> [<b>{teamEntity.id}</b>]
+            <Translate contentKey="footballUiApp.team.detail.title">Team</Translate>
           </h2>
           <dl className="jh-entity-details">
             <dt>
@@ -38,7 +38,7 @@ export class TeamDetail extends React.Component<ITeamDetailProps> {
               </span>
             </dt>
             <dd>
-              <img className="team-logo" src={teamEntity.logo} alt="logo"/>
+              <img className="team-logo" src={teamEntity.logo} alt="logo" />
             </dd>
             <dt>
               <span id="venueName">

@@ -23,7 +23,7 @@ export class PlayerDetail extends React.Component<IPlayerDetailProps> {
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="footballUiApp.player.detail.title">Player</Translate> [<b>{playerEntity.id}</b>]
+            <Translate contentKey="footballUiApp.player.detail.title">Player</Translate>
           </h2>
           <dl className="jh-entity-details">
             <dt>

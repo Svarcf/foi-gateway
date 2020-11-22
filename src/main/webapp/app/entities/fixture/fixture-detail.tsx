@@ -23,7 +23,7 @@ export class FixtureDetail extends React.Component<IFixtureDetailProps> {
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="footballUiApp.fixture.detail.title">Fixture</Translate> [<b>{fixtureEntity.id}</b>]
+            <Translate contentKey="footballUiApp.fixture.detail.title">Fixture</Translate>
           </h2>
           <dl className="jh-entity-details">
             <dt>

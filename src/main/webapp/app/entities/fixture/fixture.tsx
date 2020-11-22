@@ -4,11 +4,15 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
 import { Translate, ICrudGetAllAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import BootstrapTable from 'react-bootstrap-table-next';
+import filterFactory, { selectFilter, textFilter } from 'react-bootstrap-table2-filter';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntities } from './fixture.reducer';
+import { FixtureState, getEntities } from './fixture.reducer';
+import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT, AUTHORITIES } from 'app/config/constants';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import { IFixture } from 'app/shared/model/fixture.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IFixtureProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -18,7 +22,83 @@ export class Fixture extends React.Component<IFixtureProps> {
   }
 
   render() {
-    const { fixtureList, match } = this.props;
+    const { fixtureList, match, isAdmin } = this.props;
+    const homeTeamOptions = {};
+    const awayTeamOptions = {};
+    new Set(fixtureList.map(fixture => fixture.homeTeam.name)).forEach(ele => {
+      homeTeamOptions[ele] = ele;
+    });
+
+    new Set(fixtureList.map(fixture => fixture.awayTeam.name)).forEach(ele => {
+      awayTeamOptions[ele] = ele;
+    });
+
+    const columns = [
+      {
+        dataField: 'eventDate',
+        text: 'Event Date',
+        filter: textFilter()
+      },
+      {
+        dataField: 'round',
+        text: 'Round'
+      },
+      {
+        dataField: 'homeTeam',
+        text: 'Home Team',
+        filter: selectFilter({
+          options: homeTeamOptions,
+          onFilter: (filterValue: string) =>
+            filterValue === '' ? fixtureList : fixtureList.filter(ele => ele.homeTeam.name === filterValue)
+        }),
+        formatter: (cellContent, fixture: IFixture) => fixture.homeTeam.name
+      },
+      {
+        dataField: 'score',
+        text: 'Score'
+      },
+      {
+        dataField: 'awayTeam',
+        text: 'Away Team',
+        filter: selectFilter({
+          options: awayTeamOptions,
+          onFilter: (filterValue: string) =>
+            filterValue === '' ? fixtureList : fixtureList.filter(ele => ele.awayTeam.name === filterValue)
+        }),
+        formatter: (cellContent, fixture: IFixture) => fixture.awayTeam.name
+      },
+      {
+        dataField: 'commandColumn',
+        isDummyField: true,
+        text: '',
+        formatter: (cellContent, fixture) => (
+          <div className="btn-group flex-btn-group-container">
+            <Button tag={Link} to={`${match.url}/${fixture.id}`} color="info" size="sm">
+              <FontAwesomeIcon icon="eye" />{' '}
+              <span className="d-none d-md-inline">
+                <Translate contentKey="entity.action.view">View</Translate>
+              </span>
+            </Button>
+            {isAdmin && (
+              <span className="d-inline-flex">
+                <Button tag={Link} to={`${match.url}/${fixture.id}/edit`} color="primary" size="sm">
+                  <FontAwesomeIcon icon="pencil-alt" />{' '}
+                  <span className="d-none d-md-inline">
+                    <Translate contentKey="entity.action.edit">Edit</Translate>
+                  </span>
+                </Button>
+                <Button tag={Link} to={`${match.url}/${fixture.id}/delete`} color="danger" size="sm">
+                  <FontAwesomeIcon icon="trash" />{' '}
+                  <span className="d-none d-md-inline">
+                    <Translate contentKey="entity.action.delete">Delete</Translate>
+                  </span>
+                </Button>
+              </span>
+            )}
+          </div>
+        )
+      }
+    ];
     return (
       <div>
         <h2 id="fixture-heading">
@@ -31,67 +111,7 @@ export class Fixture extends React.Component<IFixtureProps> {
         </h2>
         <div className="table-responsive">
           {fixtureList && fixtureList.length > 0 ? (
-            <Table responsive aria-describedby="fixture-heading">
-              <thead>
-                <tr>
-                  <th>
-                    <Translate contentKey="global.field.id">ID</Translate>
-                  </th>
-                  <th>
-                    <Translate contentKey="footballUiApp.fixture.eventDate">Event Date</Translate>
-                  </th>
-                  <th>
-                    <Translate contentKey="footballUiApp.fixture.round">Round</Translate>
-                  </th>
-                  <th>
-                    <Translate contentKey="footballUiApp.fixture.statusShort">Status Short</Translate>
-                  </th>
-                  <th>
-                    <Translate contentKey="footballUiApp.fixture.score">Score</Translate>
-                  </th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {fixtureList.map((fixture, i) => (
-                  <tr key={`entity-${i}`}>
-                    <td>
-                      <Button tag={Link} to={`${match.url}/${fixture.id}`} color="link" size="sm">
-                        {fixture.id}
-                      </Button>
-                    </td>
-                    <td>
-                      <TextFormat type="date" value={fixture.eventDate} format={APP_LOCAL_DATE_FORMAT} />
-                    </td>
-                    <td>{fixture.round}</td>
-                    <td>{fixture.statusShort}</td>
-                    <td>{fixture.score}</td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${fixture.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${fixture.id}/edit`} color="primary" size="sm">
-                          <FontAwesomeIcon icon="pencil-alt" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.edit">Edit</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${fixture.id}/delete`} color="danger" size="sm">
-                          <FontAwesomeIcon icon="trash" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.delete">Delete</Translate>
-                          </span>
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
+            <BootstrapTable keyField="id" data={fixtureList} columns={columns} filter={filterFactory()} pagination={paginationFactory()} />
           ) : (
             <div className="alert alert-warning">
               <Translate contentKey="footballUiApp.fixture.home.notFound">No Fixtures found</Translate>
@@ -103,8 +123,9 @@ export class Fixture extends React.Component<IFixtureProps> {
   }
 }
 
-const mapStateToProps = ({ fixture }: IRootState) => ({
-  fixtureList: fixture.entities
+const mapStateToProps = ({ fixture, authentication }: IRootState) => ({
+  fixtureList: fixture.entities,
+  isAdmin: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN])
 });
 
 const mapDispatchToProps = {

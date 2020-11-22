@@ -16,11 +16,13 @@
       "detail": {
         "title": "Fixture"
       },
-      "eventDate": "Event Date",
-      "round": "Round",
-      "statusShort": "Status Short",
-      "venue": "Venue",
-      "score": "Score"
+      "eventDate": "Datum",
+      "round": "Kolo",
+      "statusShort": "Status",
+      "venue": "Stadion",
+      "score": "Rezultat",
+      "homeTeam": "Domacini",
+      "awayTeam": "Gosti"
     }
   }
 }

@@ -20,7 +20,9 @@
       "round": "Round",
       "statusShort": "Status Short",
       "venue": "Venue",
-      "score": "Score"
+      "score": "Score",
+      "homeTeam": "Home Team",
+      "awayTeam": "Away Team"
     }
   }
 }
