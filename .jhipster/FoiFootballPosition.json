@@ -13,15 +13,15 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "foiFootballPlayer",
-            "otherEntityRelationshipName": "foiFootballPosition",
+            "otherEntityRelationshipName": "position",
             "relationshipName": "players"
         }
     ],
     "changelogDate": "20200202150330",
     "entityTableName": "foi_football_position",
-    "dto": "no",
+    "dto": "mapstruct",
     "pagination": "no",
-    "service": "no",
+    "service": "serviceClass",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "readOnly": false,

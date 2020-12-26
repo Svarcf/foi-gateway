@@ -18,7 +18,9 @@
       },
       "name": "Name",
       "start": "Start",
-      "end": "End"
+      "end": "End",
+      "fixtures": "Fixtures",
+      "tables": "Tables"
     }
   }
 }

@@ -18,8 +18,8 @@
       },
       "name": "Name",
       "number": "Number",
-      "foiFootballPosition": "Foi Football Position",
-      "foiFootballTeam": "Foi Football Team"
+      "position": "Position",
+      "team": "Team"
     }
   }
 }

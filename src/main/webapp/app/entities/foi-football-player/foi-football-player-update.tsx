@@ -20,16 +20,16 @@ export interface IFoiFootballPlayerUpdateProps extends StateProps, DispatchProps
 
 export interface IFoiFootballPlayerUpdateState {
   isNew: boolean;
-  foiFootballPositionId: string;
-  foiFootballTeamId: string;
+  positionId: string;
+  teamId: string;
 }
 
 export class FoiFootballPlayerUpdate extends React.Component<IFoiFootballPlayerUpdateProps, IFoiFootballPlayerUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      foiFootballPositionId: '0',
-      foiFootballTeamId: '0',
+      positionId: '0',
+      teamId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -127,15 +127,10 @@ export class FoiFootballPlayerUpdate extends React.Component<IFoiFootballPlayerU
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="foi-football-player-foiFootballPosition">
-                    <Translate contentKey="footballUiApp.foiFootballPlayer.foiFootballPosition">Foi Football Position</Translate>
+                  <Label for="foi-football-player-position">
+                    <Translate contentKey="footballUiApp.foiFootballPlayer.position">Position</Translate>
                   </Label>
-                  <AvInput
-                    id="foi-football-player-foiFootballPosition"
-                    type="select"
-                    className="form-control"
-                    name="foiFootballPosition.id"
-                  >
+                  <AvInput id="foi-football-player-position" type="select" className="form-control" name="positionId">
                     <option value="" key="0" />
                     {foiFootballPositions
                       ? foiFootballPositions.map(otherEntity => (
@@ -147,10 +142,10 @@ export class FoiFootballPlayerUpdate extends React.Component<IFoiFootballPlayerU
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="foi-football-player-foiFootballTeam">
-                    <Translate contentKey="footballUiApp.foiFootballPlayer.foiFootballTeam">Foi Football Team</Translate>
+                  <Label for="foi-football-player-team">
+                    <Translate contentKey="footballUiApp.foiFootballPlayer.team">Team</Translate>
                   </Label>
-                  <AvInput id="foi-football-player-foiFootballTeam" type="select" className="form-control" name="foiFootballTeam.id">
+                  <AvInput id="foi-football-player-team" type="select" className="form-control" name="teamId">
                     <option value="" key="0" />
                     {foiFootballTeams
                       ? foiFootballTeams.map(otherEntity => (

@@ -31,15 +31,33 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "foiFootballPlayer",
-            "otherEntityRelationshipName": "foiFootballTeam",
+            "otherEntityRelationshipName": "team",
             "relationshipName": "players"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballFixture",
+            "otherEntityRelationshipName": "homeTeam",
+            "relationshipName": "fixturesHome"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballFixture",
+            "otherEntityRelationshipName": "awayTeam",
+            "relationshipName": "fixturesAway"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballTable",
+            "otherEntityRelationshipName": "team",
+            "relationshipName": "tables"
         }
     ],
     "changelogDate": "20200202150331",
     "entityTableName": "foi_football_team",
-    "dto": "no",
+    "dto": "mapstruct",
     "pagination": "no",
-    "service": "no",
+    "service": "serviceClass",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "readOnly": false,

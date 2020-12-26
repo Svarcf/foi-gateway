@@ -14,6 +14,7 @@ import { IRootState } from 'app/shared/reducers';
 import { getSession } from 'app/shared/reducers/authentication';
 import { getProfile } from 'app/shared/reducers/application-profile';
 import { setLocale } from 'app/shared/reducers/locale';
+import { getEntities as getTournaments } from 'app/entities/foi-football-tournament/foi-football-tournament.reducer';
 import Header from 'app/shared/layout/header/header';
 import Footer from 'app/shared/layout/footer/footer';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
@@ -32,6 +33,7 @@ export const App = (props: IAppProps) => {
   useEffect(() => {
     props.getSession();
     props.getProfile();
+    props.getTournaments();
   }, []);
 
   const paddingTop = '60px';
@@ -48,6 +50,7 @@ export const App = (props: IAppProps) => {
             ribbonEnv={props.ribbonEnv}
             isInProduction={props.isInProduction}
             isSwaggerEnabled={props.isSwaggerEnabled}
+            tournaments={props.foiFootballTournaments}
           />
         </ErrorBoundary>
         <div className="container view-container" id="app-view-container">
@@ -63,16 +66,17 @@ export const App = (props: IAppProps) => {
   );
 };
 
-const mapStateToProps = ({ authentication, applicationProfile, locale }: IRootState) => ({
+const mapStateToProps = ({ authentication, applicationProfile, locale, foiFootballTournament }: IRootState) => ({
   currentLocale: locale.currentLocale,
   isAuthenticated: authentication.isAuthenticated,
   isAdmin: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN]),
   ribbonEnv: applicationProfile.ribbonEnv,
   isInProduction: applicationProfile.inProduction,
-  isSwaggerEnabled: applicationProfile.isSwaggerEnabled
+  isSwaggerEnabled: applicationProfile.isSwaggerEnabled,
+  foiFootballTournaments: foiFootballTournament.entities
 });
 
-const mapDispatchToProps = { setLocale, getSession, getProfile };
+const mapDispatchToProps = { setLocale, getSession, getProfile, getTournaments };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

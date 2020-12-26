@@ -21,12 +21,34 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballTournament",
+            "otherEntityRelationshipName": "fixtures",
+            "relationshipName": "tournament",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballTeam",
+            "otherEntityRelationshipName": "fixturesHome",
+            "relationshipName": "homeTeam",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballTeam",
+            "otherEntityRelationshipName": "fixturesAway",
+            "relationshipName": "awayTeam",
+            "otherEntityField": "id"
+        }
+    ],
     "changelogDate": "20200202150332",
     "entityTableName": "foi_football_fixture",
-    "dto": "no",
+    "dto": "mapstruct",
     "pagination": "no",
-    "service": "no",
+    "service": "serviceClass",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "readOnly": false,

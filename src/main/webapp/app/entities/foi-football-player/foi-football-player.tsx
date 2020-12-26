@@ -9,16 +9,21 @@ import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './foi-football-player.reducer';
 import { IFoiFootballPlayer } from 'app/shared/model/foi-football-player.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { getEntities as getFoiFootballPositions } from 'app/entities/foi-football-position/foi-football-position.reducer';
+import { getEntities as getFoiFootballTeams } from 'app/entities/foi-football-team/foi-football-team.reducer';
+import team from '../team/team';
 
 export interface IFoiFootballPlayerProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export class FoiFootballPlayer extends React.Component<IFoiFootballPlayerProps> {
   componentDidMount() {
     this.props.getEntities();
+    this.props.getFoiFootballPositions();
+    this.props.getFoiFootballTeams();
   }
 
   render() {
-    const { foiFootballPlayerList, match } = this.props;
+    const { foiFootballPlayerList, foiFootballPositions, foiFootballTeams, match } = this.props;
     return (
       <div>
         <h2 id="foi-football-player-heading">
@@ -44,10 +49,10 @@ export class FoiFootballPlayer extends React.Component<IFoiFootballPlayerProps> 
                     <Translate contentKey="footballUiApp.foiFootballPlayer.number">Number</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="footballUiApp.foiFootballPlayer.foiFootballPosition">Foi Football Position</Translate>
+                    <Translate contentKey="footballUiApp.foiFootballPlayer.position">Position</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="footballUiApp.foiFootballPlayer.foiFootballTeam">Foi Football Team</Translate>
+                    <Translate contentKey="footballUiApp.foiFootballPlayer.team">Team</Translate>
                   </th>
                   <th />
                 </tr>
@@ -63,18 +68,18 @@ export class FoiFootballPlayer extends React.Component<IFoiFootballPlayerProps> 
                     <td>{foiFootballPlayer.name}</td>
                     <td>{foiFootballPlayer.number}</td>
                     <td>
-                      {foiFootballPlayer.foiFootballPosition ? (
-                        <Link to={`foi-football-position/${foiFootballPlayer.foiFootballPosition.id}`}>
-                          {foiFootballPlayer.foiFootballPosition.name}
+                      {foiFootballPlayer.positionId && foiFootballPositions && foiFootballPositions.length ? (
+                        <Link to={`foi-football-position/${foiFootballPlayer.positionId}`}>
+                          {foiFootballPositions.find(value => value.id === foiFootballPlayer.positionId).name}
                         </Link>
                       ) : (
                         ''
                       )}
                     </td>
                     <td>
-                      {foiFootballPlayer.foiFootballTeam ? (
-                        <Link to={`foi-football-team/${foiFootballPlayer.foiFootballTeam.id}`}>
-                          {foiFootballPlayer.foiFootballTeam.name}
+                      {foiFootballPlayer.teamId && foiFootballTeams && foiFootballTeams.length ? (
+                        <Link to={`foi-football-team/${foiFootballPlayer.teamId}`}>
+                          {foiFootballTeams.find(value => value.id === foiFootballPlayer.teamId).name}
                         </Link>
                       ) : (
                         ''
@@ -117,12 +122,16 @@ export class FoiFootballPlayer extends React.Component<IFoiFootballPlayerProps> 
   }
 }
 
-const mapStateToProps = ({ foiFootballPlayer }: IRootState) => ({
-  foiFootballPlayerList: foiFootballPlayer.entities
+const mapStateToProps = (storeState: IRootState) => ({
+  foiFootballPositions: storeState.foiFootballPosition.entities,
+  foiFootballTeams: storeState.foiFootballTeam.entities,
+  foiFootballPlayerList: storeState.foiFootballPlayer.entities
 });
 
 const mapDispatchToProps = {
-  getEntities
+  getEntities,
+  getFoiFootballPositions,
+  getFoiFootballTeams
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

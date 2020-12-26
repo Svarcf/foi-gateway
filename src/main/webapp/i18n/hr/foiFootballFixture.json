@@ -19,7 +19,9 @@
       "eventDate": "Event Date",
       "round": "Round",
       "venue": "Venue",
-      "score": "Score"
+      "score": "Score",
+      "homeTeam": "Home Team",
+      "awayTeam": "Away Team"
     }
   }
 }

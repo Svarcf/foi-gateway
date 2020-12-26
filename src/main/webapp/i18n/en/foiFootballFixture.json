@@ -19,7 +19,10 @@
       "eventDate": "Event Date",
       "round": "Round",
       "venue": "Venue",
-      "score": "Score"
+      "score": "Score",
+      "tournament": "Tournament",
+      "homeTeam": "Home Team",
+      "awayTeam": "Away Team"
     }
   }
 }

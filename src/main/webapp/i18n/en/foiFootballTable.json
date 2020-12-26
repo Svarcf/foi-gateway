@@ -1,0 +1,27 @@
+{
+  "footballUiApp": {
+    "foiFootballTable": {
+      "home": {
+        "title": "Foi Football Tables",
+        "createLabel": "Create a new Foi Football Table",
+        "createOrEditLabel": "Create or edit a Foi Football Table",
+        "notFound": "No Foi Football Tables found"
+      },
+      "created": "A new Foi Football Table is created with identifier {{ param }}",
+      "updated": "A Foi Football Table is updated with identifier {{ param }}",
+      "deleted": "A Foi Football Table is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Foi Football Table {{ id }}?"
+      },
+      "detail": {
+        "title": "Foi Football Table"
+      },
+      "wins": "Wins",
+      "draws": "Draws",
+      "loses": "Loses",
+      "points": "Points",
+      "tournament": "Tournament",
+      "team": "Team"
+    }
+  }
+}

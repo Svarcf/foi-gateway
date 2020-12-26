@@ -25,6 +25,14 @@ import fixture, {
   FixtureState
 } from 'app/entities/fixture/fixture.reducer';
 // prettier-ignore
+import standing, {
+  StandingState
+} from 'app/entities/standing/standing.reducer';
+// prettier-ignore
+import competition, {
+  CompetitionState
+} from 'app/entities/competition/competition.reducer';
+// prettier-ignore
 import foiFootballPlayer, {
   FoiFootballPlayerState
 } from 'app/entities/foi-football-player/foi-football-player.reducer';
@@ -45,13 +53,9 @@ import foiFootballTournament, {
   FoiFootballTournamentState
 } from 'app/entities/foi-football-tournament/foi-football-tournament.reducer';
 // prettier-ignore
-import standing, {
-  StandingState
-} from 'app/entities/standing/standing.reducer';
-// prettier-ignore
-import competition, {
-  CompetitionState
-} from 'app/entities/competition/competition.reducer';
+import foiFootballTable, {
+  FoiFootballTableState
+} from 'app/entities/foi-football-table/foi-football-table.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -75,6 +79,7 @@ export interface IRootState {
   readonly foiFootballTournament: FoiFootballTournamentState;
   readonly standing: StandingState;
   readonly competition: CompetitionState;
+  readonly foiFootballTable: FoiFootballTableState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -100,6 +105,7 @@ const rootReducer = combineReducers<IRootState>({
   foiFootballTournament,
   standing,
   competition,
+  foiFootballTable,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar
 });

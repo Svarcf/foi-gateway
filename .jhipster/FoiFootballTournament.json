@@ -23,12 +23,25 @@
             ]
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballFixture",
+            "otherEntityRelationshipName": "tournament",
+            "relationshipName": "fixtures"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballTable",
+            "otherEntityRelationshipName": "tournament",
+            "relationshipName": "tables"
+        }
+    ],
     "changelogDate": "20200202150333",
     "entityTableName": "foi_football_tournament",
-    "dto": "no",
+    "dto": "mapstruct",
     "pagination": "no",
-    "service": "no",
+    "service": "serviceClass",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "readOnly": false,

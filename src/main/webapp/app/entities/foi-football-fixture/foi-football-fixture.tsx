@@ -1,24 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-import { Translate, ICrudGetAllAction, TextFormat } from 'react-jhipster';
+import { Button, Table } from 'reactstrap';
+import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './foi-football-fixture.reducer';
-import { IFoiFootballFixture } from 'app/shared/model/foi-football-fixture.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { getEntities as getFoiFootballTournaments } from 'app/entities/foi-football-tournament/foi-football-tournament.reducer';
+import { getEntities as getFoiFootballTeams } from 'app/entities/foi-football-team/foi-football-team.reducer';
 
 export interface IFoiFootballFixtureProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export class FoiFootballFixture extends React.Component<IFoiFootballFixtureProps> {
   componentDidMount() {
     this.props.getEntities();
+    this.props.getFoiFootballTeams();
+    this.props.getFoiFootballTournaments();
   }
 
   render() {
-    const { foiFootballFixtureList, match } = this.props;
+    const { foiFootballFixtureList, foiFootballTournaments, foiFootballTeams, match } = this.props;
     return (
       <div>
         <h2 id="foi-football-fixture-heading">
@@ -49,6 +52,15 @@ export class FoiFootballFixture extends React.Component<IFoiFootballFixtureProps
                   <th>
                     <Translate contentKey="footballUiApp.foiFootballFixture.score">Score</Translate>
                   </th>
+                  <th>
+                    <Translate contentKey="footballUiApp.foiFootballFixture.tournament">Tournament</Translate>
+                  </th>
+                  <th>
+                    <Translate contentKey="footballUiApp.foiFootballFixture.homeTeam">Home Team</Translate>
+                  </th>
+                  <th>
+                    <Translate contentKey="footballUiApp.foiFootballFixture.awayTeam">Away Team</Translate>
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -66,6 +78,33 @@ export class FoiFootballFixture extends React.Component<IFoiFootballFixtureProps
                     <td>{foiFootballFixture.round}</td>
                     <td>{foiFootballFixture.venue}</td>
                     <td>{foiFootballFixture.score}</td>
+                    <td>
+                      {foiFootballFixture.tournamentId && foiFootballTournaments && foiFootballTournaments.length ? (
+                        <Link to={`foi-football-tournament/${foiFootballFixture.tournamentId}`}>
+                          {foiFootballTournaments.find(value => value.id === foiFootballFixture.tournamentId).name}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {foiFootballFixture.homeTeamId && foiFootballTeams && foiFootballTeams.length ? (
+                        <Link to={`foi-football-team/${foiFootballFixture.homeTeamId}`}>
+                          {foiFootballTeams.find(value => value.id === foiFootballFixture.homeTeamId).name}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                    <td>
+                      {foiFootballFixture.awayTeamId && foiFootballTeams && foiFootballTeams.length ? (
+                        <Link to={`foi-football-team/${foiFootballFixture.awayTeamId}`}>
+                          {foiFootballTeams.find(value => value.id === foiFootballFixture.awayTeamId).name}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${foiFootballFixture.id}`} color="info" size="sm">
@@ -103,12 +142,16 @@ export class FoiFootballFixture extends React.Component<IFoiFootballFixtureProps
   }
 }
 
-const mapStateToProps = ({ foiFootballFixture }: IRootState) => ({
-  foiFootballFixtureList: foiFootballFixture.entities
+const mapStateToProps = (storeState: IRootState) => ({
+  foiFootballFixtureList: storeState.foiFootballFixture.entities,
+  foiFootballTournaments: storeState.foiFootballTournament.entities,
+  foiFootballTeams: storeState.foiFootballTeam.entities
 });
 
 const mapDispatchToProps = {
-  getEntities
+  getEntities,
+  getFoiFootballTournaments,
+  getFoiFootballTeams
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

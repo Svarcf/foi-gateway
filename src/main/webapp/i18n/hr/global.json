@@ -3,6 +3,8 @@
     "title": "FootballUI",
     "browsehappy": "Koristite <strong>zastarjeli</strong> pretraživač. Molimo vas <a href=\"http://browsehappy.com/?locale=en\">nadogradite pretraživač</a> kako biste poboljšali Vaše iskustvo.",
     "menu": {
+      "aggregated": "Agregirani podaci",
+      "local": "Lokalni podaci",
       "home": "Početna stranica",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {

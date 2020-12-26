@@ -7,6 +7,10 @@ import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
+import { IFoiFootballTournament } from 'app/shared/model/foi-football-tournament.model';
+import { getEntities as getFoiFootballTournaments } from 'app/entities/foi-football-tournament/foi-football-tournament.reducer';
+import { getEntities as getFoiFootballTeams } from 'app/entities/foi-football-team/foi-football-team.reducer';
+import { IFoiFootballTeam } from 'app/shared/model/foi-football-team.model';
 import { getEntity, updateEntity, createEntity, reset } from './foi-football-fixture.reducer';
 import { IFoiFootballFixture } from 'app/shared/model/foi-football-fixture.model';
 import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
@@ -16,12 +20,18 @@ export interface IFoiFootballFixtureUpdateProps extends StateProps, DispatchProp
 
 export interface IFoiFootballFixtureUpdateState {
   isNew: boolean;
+  tournamentId: string;
+  homeTeamId: string;
+  awayTeamId: string;
 }
 
 export class FoiFootballFixtureUpdate extends React.Component<IFoiFootballFixtureUpdateProps, IFoiFootballFixtureUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
+      tournamentId: '0',
+      homeTeamId: '0',
+      awayTeamId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -38,6 +48,9 @@ export class FoiFootballFixtureUpdate extends React.Component<IFoiFootballFixtur
     } else {
       this.props.getEntity(this.props.match.params.id);
     }
+
+    this.props.getFoiFootballTournaments();
+    this.props.getFoiFootballTeams();
   }
 
   saveEntity = (event, errors, values) => {
@@ -61,7 +74,7 @@ export class FoiFootballFixtureUpdate extends React.Component<IFoiFootballFixtur
   };
 
   render() {
-    const { foiFootballFixtureEntity, loading, updating } = this.props;
+    const { foiFootballFixtureEntity, foiFootballTournaments, foiFootballTeams, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -121,6 +134,51 @@ export class FoiFootballFixtureUpdate extends React.Component<IFoiFootballFixtur
                   </Label>
                   <AvField id="foi-football-fixture-score" type="text" name="score" />
                 </AvGroup>
+                <AvGroup>
+                  <Label for="foi-football-fixture-tournament">
+                    <Translate contentKey="footballUiApp.foiFootballFixture.tournament">Tournament</Translate>
+                  </Label>
+                  <AvInput id="foi-football-fixture-tournament" type="select" className="form-control" name="tournamentId">
+                    <option value="" key="0" />
+                    {foiFootballTournaments
+                      ? foiFootballTournaments.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.name}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                </AvGroup>
+                <AvGroup>
+                  <Label for="foi-football-fixture-homeTeam">
+                    <Translate contentKey="footballUiApp.foiFootballFixture.homeTeam">Home Team</Translate>
+                  </Label>
+                  <AvInput id="foi-football-fixture-homeTeam" type="select" className="form-control" name="homeTeamId">
+                    <option value="" key="0" />
+                    {foiFootballTeams
+                      ? foiFootballTeams.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.name}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                </AvGroup>
+                <AvGroup>
+                  <Label for="foi-football-fixture-awayTeam">
+                    <Translate contentKey="footballUiApp.foiFootballFixture.awayTeam">Away Team</Translate>
+                  </Label>
+                  <AvInput id="foi-football-fixture-awayTeam" type="select" className="form-control" name="awayTeamId">
+                    <option value="" key="0" />
+                    {foiFootballTeams
+                      ? foiFootballTeams.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.name}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/foi-football-fixture" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
                   &nbsp;
@@ -144,6 +202,8 @@ export class FoiFootballFixtureUpdate extends React.Component<IFoiFootballFixtur
 }
 
 const mapStateToProps = (storeState: IRootState) => ({
+  foiFootballTournaments: storeState.foiFootballTournament.entities,
+  foiFootballTeams: storeState.foiFootballTeam.entities,
   foiFootballFixtureEntity: storeState.foiFootballFixture.entity,
   loading: storeState.foiFootballFixture.loading,
   updating: storeState.foiFootballFixture.updating,
@@ -151,6 +211,8 @@ const mapStateToProps = (storeState: IRootState) => ({
 });
 
 const mapDispatchToProps = {
+  getFoiFootballTournaments,
+  getFoiFootballTeams,
   getEntity,
   updateEntity,
   createEntity,

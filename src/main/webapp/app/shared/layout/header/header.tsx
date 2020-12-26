@@ -9,7 +9,8 @@ import { NavLink as Link } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading-bar';
 
 import { Home, Brand } from './header-components';
-import { AdminMenu, EntitiesMenu, AccountMenu, LocaleMenu } from '../menus';
+import { AdminMenu, EntitiesMenu, AccountMenu, LocaleMenu, AggregatedMenu, CrudMenu } from '../menus';
+import { IFoiFootballTournament } from 'app/shared/model/foi-football-tournament.model';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;
@@ -19,6 +20,7 @@ export interface IHeaderProps {
   isSwaggerEnabled: boolean;
   currentLocale: string;
   onLocaleChange: Function;
+  tournaments: ReadonlyArray<IFoiFootballTournament>;
 }
 
 const Header = (props: IHeaderProps) => {
@@ -53,6 +55,8 @@ const Header = (props: IHeaderProps) => {
         <Collapse isOpen={menuOpen} navbar>
           <Nav id="header-tabs" className="ml-auto" navbar>
             <Home />
+            <CrudMenu tournaments={props.tournaments} />
+            <AggregatedMenu />
             {props.isAuthenticated && <EntitiesMenu />}
             {props.isAuthenticated && props.isAdmin && <AdminMenu showSwagger={props.isSwaggerEnabled} />}
             <LocaleMenu currentLocale={props.currentLocale} onClick={handleLocaleChange} />

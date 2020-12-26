@@ -40,13 +40,13 @@ export class FoiFootballPlayerDetail extends React.Component<IFoiFootballPlayerD
             </dt>
             <dd>{foiFootballPlayerEntity.number}</dd>
             <dt>
-              <Translate contentKey="footballUiApp.foiFootballPlayer.foiFootballPosition">Foi Football Position</Translate>
+              <Translate contentKey="footballUiApp.foiFootballPlayer.position">Position</Translate>
             </dt>
-            <dd>{foiFootballPlayerEntity.foiFootballPosition ? foiFootballPlayerEntity.foiFootballPosition.name : ''}</dd>
+            <dd>{foiFootballPlayerEntity.positionId ? foiFootballPlayerEntity.positionId : ''}</dd>
             <dt>
-              <Translate contentKey="footballUiApp.foiFootballPlayer.foiFootballTeam">Foi Football Team</Translate>
+              <Translate contentKey="footballUiApp.foiFootballPlayer.team">Team</Translate>
             </dt>
-            <dd>{foiFootballPlayerEntity.foiFootballTeam ? foiFootballPlayerEntity.foiFootballTeam.name : ''}</dd>
+            <dd>{foiFootballPlayerEntity.teamId ? foiFootballPlayerEntity.teamId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/foi-football-player" replace color="info">
             <FontAwesomeIcon icon="arrow-left" />{' '}

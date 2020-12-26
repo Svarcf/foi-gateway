@@ -53,6 +53,18 @@ export class FoiFootballFixtureDetail extends React.Component<IFoiFootballFixtur
               </span>
             </dt>
             <dd>{foiFootballFixtureEntity.score}</dd>
+            <dt>
+              <Translate contentKey="footballUiApp.foiFootballFixture.tournament">Tournament</Translate>
+            </dt>
+            <dd>{foiFootballFixtureEntity.tournamentId ? foiFootballFixtureEntity.tournamentId : ''}</dd>
+            <dt>
+              <Translate contentKey="footballUiApp.foiFootballFixture.homeTeam">Home Team</Translate>
+            </dt>
+            <dd>{foiFootballFixtureEntity.homeTeamId ? foiFootballFixtureEntity.homeTeamId : ''}</dd>
+            <dt>
+              <Translate contentKey="footballUiApp.foiFootballFixture.awayTeam">Away Team</Translate>
+            </dt>
+            <dd>{foiFootballFixtureEntity.awayTeamId ? foiFootballFixtureEntity.awayTeamId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/foi-football-fixture" replace color="info">
             <FontAwesomeIcon icon="arrow-left" />{' '}

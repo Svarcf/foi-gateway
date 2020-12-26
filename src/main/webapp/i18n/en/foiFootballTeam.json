@@ -20,7 +20,10 @@
       "logo": "Logo",
       "venueName": "Venue Name",
       "venueCity": "Venue City",
-      "players": "Players"
+      "players": "Players",
+      "fixturesHome": "Fixtures Home",
+      "fixturesAway": "Fixtures Away",
+      "tables": "Tables"
     }
   }
 }
