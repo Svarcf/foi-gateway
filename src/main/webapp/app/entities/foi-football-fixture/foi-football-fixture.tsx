@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './foi-football-fixture.reducer';
-import { APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_LOCAL_DATE_FORMAT, AUTHORITIES } from 'app/config/constants';
 import { getEntities as getFoiFootballTournaments } from 'app/entities/foi-football-tournament/foi-football-tournament.reducer';
 import { getEntities as getFoiFootballTeams } from 'app/entities/foi-football-team/foi-football-team.reducer';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
 
 export interface IFoiFootballFixtureProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -21,16 +22,18 @@ export class FoiFootballFixture extends React.Component<IFoiFootballFixtureProps
   }
 
   render() {
-    const { foiFootballFixtureList, foiFootballTournaments, foiFootballTeams, match } = this.props;
+    const { foiFootballFixtureList, foiFootballTournaments, foiFootballTeams, match, isAdmin } = this.props;
     return (
       <div>
         <h2 id="foi-football-fixture-heading">
           <Translate contentKey="footballUiApp.foiFootballFixture.home.title">Foi Football Fixtures</Translate>
-          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="footballUiApp.foiFootballFixture.home.createLabel">Create a new Foi Football Fixture</Translate>
-          </Link>
+          {isAdmin && (
+            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              <FontAwesomeIcon icon="plus" />
+              &nbsp;
+              <Translate contentKey="footballUiApp.foiFootballFixture.home.createLabel">Create a new Foi Football Fixture</Translate>
+            </Link>
+          )}
         </h2>
         <div className="table-responsive">
           {foiFootballFixtureList && foiFootballFixtureList.length > 0 ? (
@@ -105,28 +108,30 @@ export class FoiFootballFixture extends React.Component<IFoiFootballFixtureProps
                         ''
                       )}
                     </td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${foiFootballFixture.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${foiFootballFixture.id}/edit`} color="primary" size="sm">
-                          <FontAwesomeIcon icon="pencil-alt" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.edit">Edit</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${foiFootballFixture.id}/delete`} color="danger" size="sm">
-                          <FontAwesomeIcon icon="trash" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.delete">Delete</Translate>
-                          </span>
-                        </Button>
-                      </div>
-                    </td>
+                    {isAdmin && (
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button tag={Link} to={`${match.url}/${foiFootballFixture.id}`} color="info" size="sm">
+                            <FontAwesomeIcon icon="eye" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.view">View</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${foiFootballFixture.id}/edit`} color="primary" size="sm">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${foiFootballFixture.id}/delete`} color="danger" size="sm">
+                            <FontAwesomeIcon icon="trash" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.delete">Delete</Translate>
+                            </span>
+                          </Button>
+                        </div>
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -145,7 +150,8 @@ export class FoiFootballFixture extends React.Component<IFoiFootballFixtureProps
 const mapStateToProps = (storeState: IRootState) => ({
   foiFootballFixtureList: storeState.foiFootballFixture.entities,
   foiFootballTournaments: storeState.foiFootballTournament.entities,
-  foiFootballTeams: storeState.foiFootballTeam.entities
+  foiFootballTeams: storeState.foiFootballTeam.entities,
+  isAdmin: hasAnyAuthority(storeState.authentication.account.authorities, [AUTHORITIES.ADMIN])
 });
 
 const mapDispatchToProps = {

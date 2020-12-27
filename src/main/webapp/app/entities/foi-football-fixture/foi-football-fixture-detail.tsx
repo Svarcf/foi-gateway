@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './foi-football-fixture.reducer';
 import { IFoiFootballFixture } from 'app/shared/model/foi-football-fixture.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT, AUTHORITIES } from 'app/config/constants';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
 
 export interface IFoiFootballFixtureDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -18,7 +19,7 @@ export class FoiFootballFixtureDetail extends React.Component<IFoiFootballFixtur
   }
 
   render() {
-    const { foiFootballFixtureEntity } = this.props;
+    const { foiFootballFixtureEntity, isAdmin } = this.props;
     return (
       <Row>
         <Col md="8">
@@ -73,20 +74,23 @@ export class FoiFootballFixtureDetail extends React.Component<IFoiFootballFixtur
             </span>
           </Button>
           &nbsp;
-          <Button tag={Link} to={`/entity/foi-football-fixture/${foiFootballFixtureEntity.id}/edit`} replace color="primary">
-            <FontAwesomeIcon icon="pencil-alt" />{' '}
-            <span className="d-none d-md-inline">
-              <Translate contentKey="entity.action.edit">Edit</Translate>
-            </span>
-          </Button>
+          {isAdmin && (
+            <Button tag={Link} to={`/entity/foi-football-fixture/${foiFootballFixtureEntity.id}/edit`} replace color="primary">
+              <FontAwesomeIcon icon="pencil-alt" />{' '}
+              <span className="d-none d-md-inline">
+                <Translate contentKey="entity.action.edit">Edit</Translate>
+              </span>
+            </Button>
+          )}
         </Col>
       </Row>
     );
   }
 }
 
-const mapStateToProps = ({ foiFootballFixture }: IRootState) => ({
-  foiFootballFixtureEntity: foiFootballFixture.entity
+const mapStateToProps = ({ foiFootballFixture, authentication }: IRootState) => ({
+  foiFootballFixtureEntity: foiFootballFixture.entity,
+  isAdmin: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN])
 });
 
 const mapDispatchToProps = { getEntity };

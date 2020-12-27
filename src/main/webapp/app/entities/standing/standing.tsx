@@ -25,11 +25,13 @@ export class Standing extends React.Component<IStandingProps> {
       <div>
         <h2 id="standing-heading">
           <Translate contentKey="footballUiApp.standing.home.title">Standings</Translate>
-          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="footballUiApp.standing.home.createLabel">Create a new Standing</Translate>
-          </Link>
+          {isAdmin && (
+            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              <FontAwesomeIcon icon="plus" />
+              &nbsp;
+              <Translate contentKey="footballUiApp.standing.home.createLabel">Create a new Standing</Translate>
+            </Link>
+          )}
         </h2>
         <div className="table-responsive">
           {standingList && standingList.length > 0 ? (
@@ -70,32 +72,30 @@ export class Standing extends React.Component<IStandingProps> {
                     <td>{standing.draw}</td>
                     <td>{standing.lost}</td>
                     <td>{standing.points}</td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${standing.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
-                        </Button>
-                        {isAdmin && (
-                          <span className="d-inline-flex">
-                            <Button tag={Link} to={`${match.url}/${standing.id}/edit`} color="primary" size="sm">
-                              <FontAwesomeIcon icon="pencil-alt" />{' '}
-                              <span className="d-none d-md-inline">
-                                <Translate contentKey="entity.action.edit">Edit</Translate>
-                              </span>
-                            </Button>
-                            <Button tag={Link} to={`${match.url}/${standing.id}/delete`} color="danger" size="sm">
-                              <FontAwesomeIcon icon="trash" />{' '}
-                              <span className="d-none d-md-inline">
-                                <Translate contentKey="entity.action.delete">Delete</Translate>
-                              </span>
-                            </Button>
-                          </span>
-                        )}
-                      </div>
-                    </td>
+                    {isAdmin && (
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button tag={Link} to={`${match.url}/${standing.id}`} color="info" size="sm">
+                            <FontAwesomeIcon icon="eye" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.view">View</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${standing.id}/edit`} color="primary" size="sm">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${standing.id}/delete`} color="danger" size="sm">
+                            <FontAwesomeIcon icon="trash" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.delete">Delete</Translate>
+                            </span>
+                          </Button>
+                        </div>
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>

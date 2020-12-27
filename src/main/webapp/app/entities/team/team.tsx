@@ -38,48 +38,52 @@ export class Team extends React.Component<ITeamProps> {
       {
         dataField: 'venueName',
         text: 'Venue Name'
-      },
-      {
-        dataField: 'commandColumn',
-        isDummyField: true,
-        text: '',
-        formatter: (cellContent, team) => (
-          <div className="btn-group flex-btn-group-container">
-            <Button tag={Link} to={`${match.url}/${team.id}`} color="info" size="sm">
-              <FontAwesomeIcon icon="eye" />{' '}
-              <span className="d-none d-md-inline">
-                <Translate contentKey="entity.action.view">View</Translate>
-              </span>
-            </Button>
-            {isAdmin && (
-              <span className="d-inline-flex">
-                <Button tag={Link} to={`${match.url}/${team.id}/edit`} color="primary" size="sm">
-                  <FontAwesomeIcon icon="pencil-alt" />{' '}
-                  <span className="d-none d-md-inline">
-                    <Translate contentKey="entity.action.edit">Edit</Translate>
-                  </span>
-                </Button>
-                <Button tag={Link} to={`${match.url}/${team.id}/delete`} color="danger" size="sm">
-                  <FontAwesomeIcon icon="trash" />{' '}
-                  <span className="d-none d-md-inline">
-                    <Translate contentKey="entity.action.delete">Delete</Translate>
-                  </span>
-                </Button>
-              </span>
-            )}
-          </div>
-        )
       }
     ];
+
+    const commandColumn = {
+      dataField: 'commandColumn',
+      isDummyField: true,
+      text: '',
+      formatter: (cellContent, team) => (
+        <div className="btn-group flex-btn-group-container">
+          <Button tag={Link} to={`${match.url}/${team.id}`} color="info" size="sm">
+            <FontAwesomeIcon icon="eye" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.view">View</Translate>
+            </span>
+          </Button>
+          <Button tag={Link} to={`${match.url}/${team.id}/edit`} color="primary" size="sm">
+            <FontAwesomeIcon icon="pencil-alt" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.edit">Edit</Translate>
+            </span>
+          </Button>
+          <Button tag={Link} to={`${match.url}/${team.id}/delete`} color="danger" size="sm">
+            <FontAwesomeIcon icon="trash" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.delete">Delete</Translate>
+            </span>
+          </Button>
+        </div>
+      )
+    };
+
+    if (isAdmin) {
+      columns.push(commandColumn);
+    }
+
     return (
       <div>
         <h2 id="team-heading">
           <Translate contentKey="footballUiApp.team.home.title">Teams</Translate>
-          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="footballUiApp.team.home.createLabel">Create a new Team</Translate>
-          </Link>
+          {isAdmin && (
+            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              <FontAwesomeIcon icon="plus" />
+              &nbsp;
+              <Translate contentKey="footballUiApp.team.home.createLabel">Create a new Team</Translate>
+            </Link>
+          )}
         </h2>
         {teamList && teamList.length > 0 ? (
           <BootstrapTable keyField="id" data={teamList} columns={columns} filter={filterFactory()} />

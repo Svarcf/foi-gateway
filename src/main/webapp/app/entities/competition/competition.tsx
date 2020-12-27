@@ -24,20 +24,19 @@ export class Competition extends React.Component<ICompetitionProps> {
       <div>
         <h2 id="competition-heading">
           <Translate contentKey="footballUiApp.competition.home.title">Competitions</Translate>
-          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="footballUiApp.competition.home.createLabel">Create a new Competition</Translate>
-          </Link>
+          {isAdmin && (
+            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              <FontAwesomeIcon icon="plus" />
+              &nbsp;
+              <Translate contentKey="footballUiApp.competition.home.createLabel">Create a new Competition</Translate>
+            </Link>
+          )}
         </h2>
         <div className="table-responsive">
           {competitionList && competitionList.length > 0 ? (
             <Table responsive aria-describedby="competition-heading">
               <thead>
                 <tr>
-                  <th>
-                    <Translate contentKey="global.field.id">ID</Translate>
-                  </th>
                   <th>
                     <Translate contentKey="footballUiApp.competition.name">Name</Translate>
                   </th>
@@ -50,39 +49,32 @@ export class Competition extends React.Component<ICompetitionProps> {
               <tbody>
                 {competitionList.map((competition, i) => (
                   <tr key={`entity-${i}`}>
-                    <td>
-                      <Button tag={Link} to={`${match.url}/${competition.id}`} color="link" size="sm">
-                        {competition.id}
-                      </Button>
-                    </td>
                     <td>{competition.name}</td>
                     <td>{competition.code}</td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${competition.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
-                        </Button>
-                        {isAdmin && (
-                          <span className="d-inline-flex">
-                            <Button tag={Link} to={`${match.url}/${competition.id}/edit`} color="primary" size="sm">
-                              <FontAwesomeIcon icon="pencil-alt" />{' '}
-                              <span className="d-none d-md-inline">
-                                <Translate contentKey="entity.action.edit">Edit</Translate>
-                              </span>
-                            </Button>
-                            <Button tag={Link} to={`${match.url}/${competition.id}/delete`} color="danger" size="sm">
-                              <FontAwesomeIcon icon="trash" />{' '}
-                              <span className="d-none d-md-inline">
-                                <Translate contentKey="entity.action.delete">Delete</Translate>
-                              </span>
-                            </Button>
-                          </span>
-                        )}
-                      </div>
-                    </td>
+                    {isAdmin && (
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button tag={Link} to={`${match.url}/${competition.id}`} color="info" size="sm">
+                            <FontAwesomeIcon icon="eye" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.view">View</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${competition.id}/edit`} color="primary" size="sm">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${competition.id}/delete`} color="danger" size="sm">
+                            <FontAwesomeIcon icon="trash" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.delete">Delete</Translate>
+                            </span>
+                          </Button>
+                        </div>
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>

@@ -14,6 +14,13 @@ import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import PageNotFound from 'app/shared/error/page-not-found';
 import { AUTHORITIES } from 'app/config/constants';
+import FoiFootballTable from './entities/foi-football-table/foi-football-table';
+import Competition from './entities/competition';
+import Fixture from './entities/fixture';
+import FoiFootballFixture from './entities/foi-football-fixture';
+import Player from './entities/player';
+import Standing from './entities/standing';
+import Team from './entities/team';
 
 const Account = Loadable({
   loader: () => import(/* webpackChunkName: "account" */ 'app/modules/account'),
@@ -30,13 +37,19 @@ const Routes = () => (
     <Switch>
       <ErrorBoundaryRoute path="/login" component={Login} />
       <ErrorBoundaryRoute path="/logout" component={Logout} />
-      <ErrorBoundaryRoute path="/account/register" component={Register} />
-      <ErrorBoundaryRoute path="/account/activate/:key?" component={Activate} />
       <ErrorBoundaryRoute path="/account/reset/request" component={PasswordResetInit} />
       <ErrorBoundaryRoute path="/account/reset/finish/:key?" component={PasswordResetFinish} />
       <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
       <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
+      <ErrorBoundaryRoute path={`/entity/foi-football-fixture`} component={FoiFootballFixture} />
+      <ErrorBoundaryRoute path={`/entity/foi-football-table/:id?`} component={FoiFootballTable} />
+      <ErrorBoundaryRoute path={`/entity/player`} component={Player} />
+      <ErrorBoundaryRoute path={`/entity/team`} component={Team} />
+      <ErrorBoundaryRoute path={`/entity/fixture`} component={Fixture} />
+      <ErrorBoundaryRoute path={`/entity/standing`} component={Standing} />
+      <ErrorBoundaryRoute path={`/entity/competition`} component={Competition} />
       <PrivateRoute path="/entity" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER]} />
+
       <ErrorBoundaryRoute path="/" exact component={Home} />
       <ErrorBoundaryRoute component={PageNotFound} />
     </Switch>

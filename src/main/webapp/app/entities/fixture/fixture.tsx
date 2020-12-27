@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-import { Translate, ICrudGetAllAction, TextFormat } from 'react-jhipster';
+import { Button } from 'reactstrap';
+import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BootstrapTable from 'react-bootstrap-table-next';
 import filterFactory, { selectFilter, textFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
 import { IRootState } from 'app/shared/reducers';
-import { FixtureState, getEntities } from './fixture.reducer';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT, AUTHORITIES } from 'app/config/constants';
+import { getEntities } from './fixture.reducer';
+import { AUTHORITIES } from 'app/config/constants';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import { IFixture } from 'app/shared/model/fixture.model';
 
@@ -66,48 +66,52 @@ export class Fixture extends React.Component<IFixtureProps> {
             filterValue === '' ? fixtureList : fixtureList.filter(ele => ele.awayTeam.name === filterValue)
         }),
         formatter: (cellContent, fixture: IFixture) => fixture.awayTeam.name
-      },
-      {
-        dataField: 'commandColumn',
-        isDummyField: true,
-        text: '',
-        formatter: (cellContent, fixture) => (
-          <div className="btn-group flex-btn-group-container">
-            <Button tag={Link} to={`${match.url}/${fixture.id}`} color="info" size="sm">
-              <FontAwesomeIcon icon="eye" />{' '}
-              <span className="d-none d-md-inline">
-                <Translate contentKey="entity.action.view">View</Translate>
-              </span>
-            </Button>
-            {isAdmin && (
-              <span className="d-inline-flex">
-                <Button tag={Link} to={`${match.url}/${fixture.id}/edit`} color="primary" size="sm">
-                  <FontAwesomeIcon icon="pencil-alt" />{' '}
-                  <span className="d-none d-md-inline">
-                    <Translate contentKey="entity.action.edit">Edit</Translate>
-                  </span>
-                </Button>
-                <Button tag={Link} to={`${match.url}/${fixture.id}/delete`} color="danger" size="sm">
-                  <FontAwesomeIcon icon="trash" />{' '}
-                  <span className="d-none d-md-inline">
-                    <Translate contentKey="entity.action.delete">Delete</Translate>
-                  </span>
-                </Button>
-              </span>
-            )}
-          </div>
-        )
       }
     ];
+
+    const commandColumn = {
+      dataField: 'commandColumn',
+      isDummyField: true,
+      text: '',
+      formatter: (cellContent, fixture) => (
+        <div className="btn-group flex-btn-group-container">
+          <Button tag={Link} to={`${match.url}/${fixture.id}`} color="info" size="sm">
+            <FontAwesomeIcon icon="eye" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.view">View</Translate>
+            </span>
+          </Button>
+          <Button tag={Link} to={`${match.url}/${fixture.id}/edit`} color="primary" size="sm">
+            <FontAwesomeIcon icon="pencil-alt" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.edit">Edit</Translate>
+            </span>
+          </Button>
+          <Button tag={Link} to={`${match.url}/${fixture.id}/delete`} color="danger" size="sm">
+            <FontAwesomeIcon icon="trash" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.delete">Delete</Translate>
+            </span>
+          </Button>
+        </div>
+      )
+    };
+
+    if (isAdmin) {
+      columns.push(commandColumn);
+    }
+
     return (
       <div>
         <h2 id="fixture-heading">
           <Translate contentKey="footballUiApp.fixture.home.title">Fixtures</Translate>
-          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="footballUiApp.fixture.home.createLabel">Create a new Fixture</Translate>
-          </Link>
+          {isAdmin && (
+            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              <FontAwesomeIcon icon="plus" />
+              &nbsp;
+              <Translate contentKey="footballUiApp.fixture.home.createLabel">Create a new Fixture</Translate>
+            </Link>
+          )}
         </h2>
         <div className="table-responsive">
           {fixtureList && fixtureList.length > 0 ? (
