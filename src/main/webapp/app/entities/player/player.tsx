@@ -27,7 +27,7 @@ export class Player extends React.Component<IPlayerProps> {
       teamOptions[ele] = ele;
     });
 
-    const columns = [
+    const columns : any = [
       {
         dataField: 'name',
         text: 'Name',

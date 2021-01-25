@@ -33,7 +33,7 @@ export class Fixture extends React.Component<IFixtureProps> {
       awayTeamOptions[ele] = ele;
     });
 
-    const columns = [
+    const columns : any = [
       {
         dataField: 'eventDate',
         text: 'Event Date',
