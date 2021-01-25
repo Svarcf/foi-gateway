@@ -13,7 +13,6 @@ import FoiFootballFixture from './foi-football-fixture';
 import FoiFootballTournament from './foi-football-tournament';
 import Standing from './standing';
 import Competition from './competition';
-import FoiFootballTable from './foi-football-table';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (

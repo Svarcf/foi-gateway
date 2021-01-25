@@ -132,7 +132,9 @@ export class FoiFootballFixtureUpdate extends React.Component<IFoiFootballFixtur
                   <Label id="scoreLabel" for="foi-football-fixture-score">
                     <Translate contentKey="footballUiApp.foiFootballFixture.score">Score</Translate>
                   </Label>
-                  <AvField id="foi-football-fixture-score" type="text" name="score" />
+                  <AvField id="foi-football-fixture-score" type="text" name="score" validate={{
+                    pattern: {value: '^(\\d+:\\d+$)|(-:-$)'},
+                  }} errorMessage="Invalid score"/>
                 </AvGroup>
                 <AvGroup>
                   <Label for="foi-football-fixture-tournament">

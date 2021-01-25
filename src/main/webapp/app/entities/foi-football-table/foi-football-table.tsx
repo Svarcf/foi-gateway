@@ -13,6 +13,11 @@ import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 export interface IFoiFootballTableProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export class FoiFootballTable extends React.Component<IFoiFootballTableProps> {
+
+  componentDidMount() {
+    this.props.getEntities(this.props.match.params.id);
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.props.getEntities(this.props.match.params.id);

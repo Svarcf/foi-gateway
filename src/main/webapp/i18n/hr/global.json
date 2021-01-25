@@ -12,6 +12,8 @@
         "player": "Player",
         "team": "Team",
         "fixture": "Fixture",
+        "standing": "Tablice",
+        "competition": "Lige",
         "foiFootballPlayer": "Foi Football Player",
         "foiFootballPosition": "Foi Football Position",
         "foiFootballTeam": "Foi Football Team",
