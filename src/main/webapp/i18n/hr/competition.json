@@ -2,22 +2,22 @@
   "footballUiApp": {
     "competition": {
       "home": {
-        "title": "Competitions",
-        "createLabel": "Kreiraj novi Competition",
-        "createOrEditLabel": "Kreirajte ili izmjenite Competition",
-        "notFound": "No Competitions found"
+        "title": "Natjecanje",
+        "createLabel": "Kreiraj novo Natjecanje",
+        "createOrEditLabel": "Kreirajte ili izmjenite Natjecanje",
+        "notFound": "Natjecanje nije pronađeno"
       },
-      "created": "Kreiran je novi Competition pod nazivom {{ param }}",
-      "updated": "Competition pod nazivom {{ param }} je ažuriran",
-      "deleted": "Competition pod nazivom {{ param }} je obrisan",
+      "created": "Kreirano je novo Natjecanje pod nazivom {{ param }}",
+      "updated": "Natjecanje pod nazivom {{ param }} je ažuriran",
+      "deleted": "Natjecanje pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Competition pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Natjecanje pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Competition"
+        "title": "Natjecanje"
       },
-      "name": "Name",
-      "code": "Code"
+      "name": "Ime",
+      "code": "Kod"
     }
   }
 }

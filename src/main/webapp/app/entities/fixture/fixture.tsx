@@ -105,13 +105,6 @@ export class Fixture extends React.Component<IFixtureProps> {
       <div>
         <h2 id="fixture-heading">
           <Translate contentKey="footballUiApp.fixture.home.title">Fixtures</Translate>
-          {isAdmin && (
-            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-              <FontAwesomeIcon icon="plus" />
-              &nbsp;
-              <Translate contentKey="footballUiApp.fixture.home.createLabel">Create a new Fixture</Translate>
-            </Link>
-          )}
         </h2>
         <div className="table-responsive">
           {fixtureList && fixtureList.length > 0 ? (

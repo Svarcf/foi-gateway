@@ -23,6 +23,6 @@
         "remoteAddress": "Adresa pristupa:"
       }
     },
-    "notFound": "No audit found"
+    "notFound": "Niti jedna revizija nije pronadena"
   }
 }

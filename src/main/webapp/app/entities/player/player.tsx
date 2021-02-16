@@ -84,13 +84,6 @@ export class Player extends React.Component<IPlayerProps> {
       <div>
         <h2 id="player-heading">
           <Translate contentKey="footballUiApp.player.home.title">Players</Translate>
-          {isAdmin && (
-            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-              <FontAwesomeIcon icon="plus" />
-              &nbsp;
-              <Translate contentKey="footballUiApp.player.home.createLabel">Create a new Player</Translate>
-            </Link>
-          )}
         </h2>
         {playerList && playerList.length > 0 ? (
           <BootstrapTable keyField="id" data={playerList} columns={columns} filter={filterFactory()} pagination={paginationFactory()} />

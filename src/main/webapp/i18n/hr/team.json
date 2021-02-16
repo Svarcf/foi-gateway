@@ -2,25 +2,25 @@
   "footballUiApp": {
     "team": {
       "home": {
-        "title": "Teams",
-        "createLabel": "Kreiraj novi Team",
-        "createOrEditLabel": "Kreirajte ili izmijenite Team",
-        "notFound": "No Teams found"
+        "title": "Tim",
+        "createLabel": "Kreiraj novi Tim",
+        "createOrEditLabel": "Kreirajte ili izmijenite Tim",
+        "notFound": "Tim nije pronađen"
       },
-      "created": "Kreiran je novi Team pod nazivom {{ param }}",
-      "updated": "Team pod nazivom {{ param }} je ažuriran",
-      "deleted": "Team pod nazivom {{ param }} je obrisan",
+      "created": "Kreiran je novi Tim pod nazivom {{ param }}",
+      "updated": "Tim pod nazivom {{ param }} je ažuriran",
+      "deleted": "Tim pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Jeste li sigurni da želite da obrišete Team pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Tim pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Team"
+        "title": "Tim"
       },
-      "name": "Name",
+      "name": "Ime",
       "logo": "Logo",
-      "venueName": "Venue Name",
-      "venueCity": "Venue City",
-      "players": "Players"
+      "venueName": "Ime Stadiona",
+      "venueCity": "Venue Grada",
+      "players": "Igrači"
     }
   }
 }

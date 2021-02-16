@@ -2,28 +2,28 @@
   "footballUiApp": {
     "foiFootballTeam": {
       "home": {
-        "title": "Foi Football Teams",
-        "createLabel": "Kreiraj novi Foi Football Team",
-        "createOrEditLabel": "Kreirajte ili izmijenite Foi Football Team",
-        "notFound": "No Foi Football Teams found"
+        "title": "Foi Nogometni Tim",
+        "createLabel": "Kreiraj novi Foi Nogometni Tim",
+        "createOrEditLabel": "Kreirajte ili izmijenite Foi Nogometni Tim",
+        "notFound": "Foi Nogometni Tim nije pronađena "
       },
-      "created": "Kreiran je novi Foi Football Team pod nazivom {{ param }}",
-      "updated": "Foi Football Team pod nazivom {{ param }} je ažuriran",
-      "deleted": "Foi Football Team pod nazivom {{ param }} je obrisan",
+      "created": "Kreiran je novi Foi Nogometni Tim pod nazivom {{ param }}",
+      "updated": "Foi Nogometni Tim pod nazivom {{ param }} je ažuriran",
+      "deleted": "Foi Nogometni Tim pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Foi Football Team pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Foi Nogometni Tim pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Foi Football Team"
+        "title": "Foi Nogometni Tim"
       },
-      "name": "Name",
+      "name": "Ime",
       "logo": "Logo",
-      "venueName": "Venue Name",
-      "venueCity": "Venue City",
-      "players": "Players",
-      "fixturesHome": "Fixtures Home",
-      "fixturesAway": "Fixtures Away",
-      "tables": "Tables"
+      "venueName": "Ime Stadiona",
+      "venueCity": "Ime Grada",
+      "players": "Igraci",
+      "fixturesHome": "Domace Utakmice",
+      "fixturesAway": "Gostujuce Utakmice",
+      "tables": "Tablice"
     }
   }
 }

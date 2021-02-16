@@ -2,21 +2,21 @@
   "footballUiApp": {
     "standing": {
       "home": {
-        "title": "Standings",
-        "createLabel": "Kreiraj novi Standing",
-        "createOrEditLabel": "Kreirajte ili izmjenite Standing",
-        "notFound": "No Standings found"
+        "title": "Tablica",
+        "createLabel": "Kreiraj novi red Tablice",
+        "createOrEditLabel": "Kreirajte ili izmjenite Tablicu",
+        "notFound": "Tablica nije pronađena"
       },
-      "created": "Kreiran je novi Standing pod nazivom {{ param }}",
-      "updated": "Standing pod nazivom {{ param }} je ažuriran",
-      "deleted": "Standing pod nazivom {{ param }} je obrisan",
+      "created": "Kreiran je novi red Tablice pod nazivom {{ param }}",
+      "updated": "Tablica pod nazivom {{ param }} je ažurirana",
+      "deleted": "Tablica pod nazivom {{ param }} je obrisana",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Standing pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Tablicu pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Standing"
+        "title": "Tablica"
       },
-      "position": "Position",
+      "position": "Pozicija",
       "won": "Pobjeda",
       "draw": "Nerješeno",
       "lost": "Poraz",

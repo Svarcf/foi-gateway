@@ -2,14 +2,14 @@
   "error": {
     "title": "Greška!",
     "http": {
-      "400": "Bad request.",
+      "400": "Krivi zahtjev.",
       "403": "Nemate dozvolu za pristupanje ovoj stranici.",
       "404": "Stranica ne postoji.",
-      "405": "The HTTP verb you used is not supported for this URL.",
-      "500": "Internal server error."
+      "405": "The HTTP zahtjev nije podržan na ovom URL-u.",
+      "500": "Interna server greška."
     },
-    "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
-    "validation": "Validation error on the server.",
+    "concurrencyFailure": "Još jedan korisnik je ažurirao podatke u isto vrijeme. Tvoja promjena je odbijena.",
+    "validation": "Greška s validacijom na serveru.",
     "url": {
       "not": {
         "found": "URL nije pronaden"

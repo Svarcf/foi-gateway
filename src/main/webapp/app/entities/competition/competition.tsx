@@ -24,13 +24,6 @@ export class Competition extends React.Component<ICompetitionProps> {
       <div>
         <h2 id="competition-heading">
           <Translate contentKey="footballUiApp.competition.home.title">Competitions</Translate>
-          {isAdmin && (
-            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-              <FontAwesomeIcon icon="plus" />
-              &nbsp;
-              <Translate contentKey="footballUiApp.competition.home.createLabel">Create a new Competition</Translate>
-            </Link>
-          )}
         </h2>
         <div className="table-responsive">
           {competitionList && competitionList.length > 0 ? (

@@ -2,19 +2,19 @@
   "footballUiApp": {
     "fixture": {
       "home": {
-        "title": "Fixtures",
-        "createLabel": "Kreiraj novi Fixture",
-        "createOrEditLabel": "Kreirajte ili izmijenite Fixture",
-        "notFound": "No Fixtures found"
+        "title": "Utakmica",
+        "createLabel": "Kreiraj novu Utakmicu",
+        "createOrEditLabel": "Kreirajte ili izmijenite Utakmicu",
+        "notFound": "Utakmica nije pronađena"
       },
-      "created": "Kreiran je novi Fixture pod nazivom {{ param }}",
-      "updated": "Fixture pod nazivom {{ param }} je ažuriran",
-      "deleted": "Fixture pod nazivom {{ param }} je obrisan",
+      "created": "Kreirana je nova Utakmica pod nazivom {{ param }}",
+      "updated": "Utakmica pod nazivom {{ param }} je ažurirana",
+      "deleted": "Utakmica pod nazivom {{ param }} je obrisana",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Fixture pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Utakmicu pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Fixture"
+        "title": "Utakmica"
       },
       "eventDate": "Datum",
       "round": "Kolo",
@@ -22,7 +22,12 @@
       "venue": "Stadion",
       "score": "Rezultat",
       "homeTeam": "Domacini",
-      "awayTeam": "Gosti"
+      "awayTeam": "Gosti",
+      "statusesShort": {
+        "HOME_TEAM": "Domaći tim",
+        "AWAY_TEAM": "Gostujući tim",
+        "DRAW": "Izjednačeno"
+      }
     }
   }
 }

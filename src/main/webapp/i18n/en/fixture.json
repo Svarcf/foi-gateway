@@ -22,7 +22,12 @@
       "venue": "Venue",
       "score": "Score",
       "homeTeam": "Home Team",
-      "awayTeam": "Away Team"
+      "awayTeam": "Away Team",
+      "statusesShort": {
+        "HOME_TEAM": "Home Team",
+        "AWAY_TEAM": "Away Team",
+        "DRAW": "Draw"
+      }
     }
   }
 }

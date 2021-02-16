@@ -2,24 +2,24 @@
   "footballUiApp": {
     "foiFootballPlayer": {
       "home": {
-        "title": "Foi Football Players",
-        "createLabel": "Kreiraj novi Foi Football Player",
-        "createOrEditLabel": "Kreirajte ili izmijenite Foi Football Player",
-        "notFound": "No Foi Football Players found"
+        "title": "Foi Nogometni Igrač",
+        "createLabel": "Kreiraj novog Foi Nogometnog Igrača",
+        "createOrEditLabel": "Kreirajte ili izmijenite Foi Nogometnog Igrača",
+        "notFound": "Foi Nogometni Igrač nije pronađena"
       },
-      "created": "Kreiran je novi Foi Football Player pod nazivom {{ param }}",
-      "updated": "Foi Football Player pod nazivom {{ param }} je ažuriran",
-      "deleted": "Foi Football Player pod nazivom {{ param }} je obrisan",
+      "created": "Kreiran je novi Foi Nogometni Igrač pod nazivom {{ param }}",
+      "updated": "Foi Nogometni Igrač pod nazivom {{ param }} je ažuriran",
+      "deleted": "Foi Nogometni Igrač pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Foi Football Player pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Foi Nogometnog Igrača pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Foi Football Player"
+        "title": "Foi Nogometni Igrač"
       },
-      "name": "Name",
-      "number": "Number",
-      "position": "Position",
-      "team": "Team"
+      "name": "Ime",
+      "number": "Broj",
+      "position": "Pozicija",
+      "team": "Tim"
     }
   }
 }

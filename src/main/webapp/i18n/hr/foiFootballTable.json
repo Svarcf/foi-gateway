@@ -2,26 +2,26 @@
   "footballUiApp": {
     "foiFootballTable": {
       "home": {
-        "title": "Foi Football Tables",
-        "createLabel": "Kreiraj novi Foi Football Table",
-        "createOrEditLabel": "Kreirajte ili izmijenite Foi Football Table",
-        "notFound": "No Foi Football Tables found"
+        "title": "Foi Nogometna Tablica",
+        "createLabel": "Kreirajte novu Foi Nogometnu Tablicu",
+        "createOrEditLabel": "Kreirajte ili izmijenite Foi Nogometnu Tablicu",
+        "notFound": "Foi Nogometna Tablica nije pronađena"
       },
-      "created": "Kreiran je novi Foi Football Table pod nazivom {{ param }}",
-      "updated": "Foi Football Table pod nazivom {{ param }} je ažuriran",
-      "deleted": "Foi Football Table pod nazivom {{ param }} je obrisan",
+      "created": "Kreiran je novi Foi Nogometna Tablica pod nazivom {{ param }}",
+      "updated": "Foi Nogometna Tablica pod nazivom {{ param }} je ažurirana",
+      "deleted": "Foi Nogometna Tablica pod nazivom {{ param }} je obrisana",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Foi Football Table pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Foi Nogometna Tablicu pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Foi Football Table"
+        "title": "Foi Nogometna Tablica"
       },
-      "wins": "Wins",
-      "draws": "Draws",
-      "loses": "Loses",
-      "points": "Points",
-      "tournament": "Tournament",
-      "team": "Team"
+      "wins": "Pobjeda",
+      "draws": "Izjednaceno",
+      "loses": "Poraz",
+      "points": "Bodovi",
+      "tournament": "Turnir",
+      "team": "Tim"
     }
   }
 }

@@ -111,13 +111,26 @@ export class FixtureUpdate extends React.Component<IFixtureUpdateProps, IFixture
                   <Label id="statusShortLabel" for="fixture-statusShort">
                     <Translate contentKey="footballUiApp.fixture.statusShort">Status Short</Translate>
                   </Label>
-                  <AvField id="fixture-statusShort" type="text" name="statusShort" />
+                  <AvInput id="fixture-statusShort" type="select" className="form-control" name="statusShort">
+                    <option value="" key="0" />
+                    <option value="HOME_TEAM" key="1">
+                     {translate("footballUiApp.fixture.statusesShort.HOME_TEAM")} 
+                    </option>
+                    <option value="AWAY_TEAM" key="2">
+                      {translate("footballUiApp.fixture.statusesShort.AWAY_TEAM")} 
+                    </option>
+                    <option value="DRAW" key="3">
+                      {translate("footballUiApp.fixture.statusesShort.DRAW")} 
+                    </option>
+                  </AvInput>
                 </AvGroup>
                 <AvGroup>
                   <Label id="scoreLabel" for="fixture-score">
                     <Translate contentKey="footballUiApp.fixture.score">Score</Translate>
                   </Label>
-                  <AvField id="fixture-score" type="text" name="score" />
+                  <AvField id="fixture-score" type="text" name="score" validate={{
+                    pattern: {value: '^(\\d+:\\d+$)|(-:-$)'},
+                  }} errorMessage="Invalid score"/>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/fixture" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />

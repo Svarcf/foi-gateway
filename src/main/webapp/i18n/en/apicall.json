@@ -1,0 +1,51 @@
+{
+  "footballCrudApp": {
+    "footballCrudFoiFootballPlayer": {
+      "updated": "Foi Football Player Updated",
+      "created": "Foi Football Player Created",
+      "deleted": "Foi Football Player Deleted"
+    },
+    "footballCrudFoiFootballPosition": {
+      "updated": "Foi Football Position Updated",
+      "created": "Foi Football Position Created",
+      "deleted": "Foi Football Position Deleted"
+    },
+    "footballCrudFoiFootballTeam": {
+      "updated": "Foi Football Team Updated",
+      "created": "Foi Football Team Created",
+      "deleted": "Foi Football Team Deleted"
+    },
+    "footballCrudFoiFootballFixture": {
+      "updated": "Foi Football Fixture Updated",
+      "created": "Foi Football Fixture Created",
+      "deleted": "Foi Football Fixture Deleted"
+    },
+    "footballCrudFoiFootballTournament": {
+      "updated": "Foi Football Tournament Updated",
+      "created": "Foi Football Tournament Created",
+      "deleted": "Foi Football Tournament Deleted"
+    }
+  },
+  "footballAggregationApp": {
+    "footballAggregationPlayer": {
+      "updated": "Football Player Updated",
+      "deleted": "Football Player Deleted"
+    },
+    "footballAggregationTeam": {
+      "updated": "Football Team Updated",
+      "deleted": "Football Team Deleted"
+    },
+    "footballAggregationFixture": {
+      "updated": "Football Fixture Updated",
+      "deleted": "Football Fixture Deleted"
+    },
+    "footballAggregationStanding": {
+      "updated": "Football Standing Updated",
+      "deleted": "Football Standing Deleted"
+    },
+    "footballAggregationCompetition": {
+      "updated": "Football Competition Updated",
+      "deleted": "Football Competition Deleted"
+    }
+  }
+}

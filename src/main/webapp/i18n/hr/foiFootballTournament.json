@@ -2,25 +2,25 @@
   "footballUiApp": {
     "foiFootballTournament": {
       "home": {
-        "title": "Foi Football Tournaments",
-        "createLabel": "Kreiraj novi Foi Football Tournament",
-        "createOrEditLabel": "Kreirajte ili izmijenite Foi Football Tournament",
-        "notFound": "No Foi Football Tournaments found"
+        "title": "Foi Nogometni Turnir",
+        "createLabel": "Kreiraj novi Foi Nogometni Turnir",
+        "createOrEditLabel": "Kreirajte ili izmijenite Foi Nogometni Turnir",
+        "notFound": "Foi Nogometni Turnir nije pronađen"
       },
-      "created": "Kreiran je novi Foi Football Tournament pod nazivom {{ param }}",
-      "updated": "Foi Football Tournament pod nazivom {{ param }} je ažuriran",
-      "deleted": "Foi Football Tournament pod nazivom {{ param }} je obrisan",
+      "created": "Kreiran je novi Foi Nogometni Turnir pod nazivom {{ param }}",
+      "updated": "Foi Nogometni Turnir pod nazivom {{ param }} je ažuriran",
+      "deleted": "Foi Nogometni Turnir pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Foi Football Tournament pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Foi Nogometni Turnir pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Foi Football Tournament"
+        "title": "Foi Nogometni Turnir"
       },
-      "name": "Name",
-      "start": "Start",
-      "end": "End",
-      "fixtures": "Fixtures",
-      "tables": "Tables"
+      "name": "Ime",
+      "start": "Početak",
+      "end": "Kraj",
+      "fixtures": "Utakmice",
+      "tables": "Tablice"
     }
   }
 }

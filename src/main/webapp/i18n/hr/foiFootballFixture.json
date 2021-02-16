@@ -2,26 +2,26 @@
   "footballUiApp": {
     "foiFootballFixture": {
       "home": {
-        "title": "Foi Football Fixtures",
-        "createLabel": "Kreiraj novi Foi Football Fixture",
-        "createOrEditLabel": "Kreirajte ili izmijenite Foi Football Fixture",
-        "notFound": "No Foi Football Fixtures found"
+        "title": "Foi Nogometna Utakmica",
+        "createLabel": "Kreiraj novu Foi Nogometna Utakmica",
+        "createOrEditLabel": "Kreirajte ili izmijenite Foi Nogometnu Utakmicu",
+        "notFound": "Foi Nogometna Utakmica nije pronađena"
       },
-      "created": "Kreiran je novi Foi Football Fixture pod nazivom {{ param }}",
-      "updated": "Foi Football Fixture pod nazivom {{ param }} je ažuriran",
-      "deleted": "Foi Football Fixture pod nazivom {{ param }} je obrisan",
+      "created": "Kreirana je nova Foi Nogometna Utakmica pod nazivom {{ param }}",
+      "updated": "Foi Nogometna Utakmica pod nazivom {{ param }} je ažuriran",
+      "deleted": "Foi Nogometna Utakmica pod nazivom {{ param }} je obrisan",
       "delete": {
-        "question": "Jeste li sigurni da želite obrisati Foi Football Fixture pod nazivom {{ id }}?"
+        "question": "Jeste li sigurni da želite obrisati Foi Nogometnu Utakmicu pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Foi Football Fixture"
+        "title": "Foi Nogometna Utakmica"
       },
-      "eventDate": "Event Date",
-      "round": "Round",
-      "venue": "Venue",
-      "score": "Score",
-      "homeTeam": "Home Team",
-      "awayTeam": "Away Team"
+      "eventDate": "Datum utakmica",
+      "round": "Kolo",
+      "venue": "Stadion",
+      "score": "Rezultat",
+      "homeTeam": "Domacini",
+      "awayTeam": "Gosti"
     }
   }
 }

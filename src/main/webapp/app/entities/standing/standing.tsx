@@ -25,13 +25,6 @@ export class Standing extends React.Component<IStandingProps> {
       <div>
         <h2 id="standing-heading">
           <Translate contentKey="footballUiApp.standing.home.title">Standings</Translate>
-          {isAdmin && (
-            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-              <FontAwesomeIcon icon="plus" />
-              &nbsp;
-              <Translate contentKey="footballUiApp.standing.home.createLabel">Create a new Standing</Translate>
-            </Link>
-          )}
         </h2>
         <div className="table-responsive">
           {standingList && standingList.length > 0 ? (

@@ -1,0 +1,51 @@
+{
+  "footballCrudApp": {
+    "footballCrudFoiFootballPlayer": {
+      "updated": "Foi Nogometni Igrač Ažuriran",
+      "created": "Foi Nogometni Igrač Kreiran",
+      "deleted": "Foi Nogometni Igrač Izbrisan"
+    },
+    "footballCrudFoiFootballPosition": {
+      "updated": "Foi Nogometna Pozicija Ažurirana",
+      "created": "Foi Nogometna Pozicija Kreirana",
+      "deleted": "Foi Nogometna Pozicija Izbrisana"
+    },
+    "footballCrudFoiFootballTeam": {
+      "updated": "Foi Nogometni Tim Ažuriran",
+      "created": "Foi Nogometni Tim Kreiran",
+      "deleted": "Foi Nogometni Tim Izbrisan"
+    },
+    "footballCrudFoiFootballFixture": {
+      "updated": "Foi Nogometna Utakmica Ažurirana",
+      "created": "Foi Nogometna Utakmica Kreirana",
+      "deleted": "Foi Nogometna Utakmica Izbrisana"
+    },
+    "footballCrudFoiFootballTournament": {
+      "updated": "Foi Nogometni Turnir Ažuriran",
+      "created": "Foi Nogometni Turnir Kreiran",
+      "deleted": "Foi Nogometni Turnir Izbrisan"
+    }
+  },
+  "footballAggregationApp": {
+    "footballAggregationPlayer": {
+      "updated": "Nogometni Igrač Ažuriran",
+      "deleted": "Nogometni Igrač Izbrisan"
+    },
+    "footballAggregationTeam": {
+      "updated": "Nogometni Tim Ažuriran",
+      "deleted": "Nogometni Tim Izbrisan"
+    },
+    "footballAggregationFixture": {
+      "updated": "Nogometna Utakmica Ažurirana",
+      "deleted": "Nogometna Utakmica Izbrisana"
+    },
+    "footballAggregationStanding": {
+      "updated": "Nogometna Tablica Ažurirana",
+      "deleted": "Nogometna Tablica Izbrisana"
+    },
+    "footballAggregationCompetition": {
+      "updated": "Nogometno Natjecanje Ažurirano",
+      "deleted": "Nogometno Natjecanje Izbrisano"
+    }
+  }
+}

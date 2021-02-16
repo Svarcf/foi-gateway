@@ -77,13 +77,6 @@ export class Team extends React.Component<ITeamProps> {
       <div>
         <h2 id="team-heading">
           <Translate contentKey="footballUiApp.team.home.title">Teams</Translate>
-          {isAdmin && (
-            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-              <FontAwesomeIcon icon="plus" />
-              &nbsp;
-              <Translate contentKey="footballUiApp.team.home.createLabel">Create a new Team</Translate>
-            </Link>
-          )}
         </h2>
         {teamList && teamList.length > 0 ? (
           <BootstrapTable keyField="id" data={teamList} columns={columns} filter={filterFactory()} />
